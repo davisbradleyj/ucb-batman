@@ -25,18 +25,19 @@
 ## Technologies Used
 - HTML - used to create elements on the DOM
 - CSS - used to add style to the deployed page
-- JavaScript - used to create the logic controlling the 
-- Bulma - aid in the implementation of syling elements
+- JavaScript - used to create the logic controlling the client-side application
 - jQuery - library supplement to JavaScript controlling application logic
 - Node.js - runtime environment which executes the JS code
 - Express - framework for Node.js to create a server
-- Handlebars - a template language within Express that aids in renders HTML
+- Passport - middleware layer which supports authentication strategies
+- Unirest - lightweight HTTP request library used to implify requests for APIs
 - MySQL Workbench - database used for storing and calling information on commandline application
 - Git - version control system to track changes to source code
 - GitHub - hosts repository that can be deployed to GitHub Pages
 - Heroku - host for deployed application
 
 ## Summary
+
 
 
 ## Learning-Points
@@ -67,7 +68,7 @@ Clone:
 3) To clone the repository using HTTPS, under "Clone with HTTPS", click the clipboard icon. To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then click the clipboard icon.
 4) Open your local Terminal
 5) Move into the directory location where you would like the cloned repo to sit.
-6) Type `git clone` then paste the URL copied from earlier so that your would see the following - `$ git clone https://github.com/davisbradleyj/trailderper.git`
+6) Type `git clone` then paste the URL copied from earlier so that your would see the following - `$ git clone https://github.com/davisbradleyj/ucb-batman.git`
 7) Press enter
 
 Fork:
