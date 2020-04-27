@@ -82,21 +82,28 @@ No tests were required for this application
 
 ## Questions
 
+If you have any questions about the repository, open an issue or contact:
+
 <img src="https://avatars1.githubusercontent.com/u/57854409?v=4" alt="avatar" style="border-radius: 16px" width="30">
+
+[Stephon Autrey](https/api.github.com/users/stephonautery) directly at stephon@stephonautery.com
 
 <img src="https://avatars1.githubusercontent.com/u/57814329?v=4" alt="avatar" style="border-radius: 16px" width="30">
 
+[Dan Fellows](https://api.github.com/users/dfel08) directly at dfellows68@gmail.com
+
 <img src="https://avatars1.githubusercontent.com/u/60407759?v=4" alt="avatar" style="border-radius: 16px" width="30">
+
+[Sam Poppe](https://api.github.com/users/popsizzle) directly at poppe.samuel@gmail.com
 
 <img src="https://avatars2.githubusercontent.com/u/61176147?v=4" alt="avatar" style="border-radius: 16px" width="30">
 
+[Brad Davis](https://api.github.com/users/davisbradleyj) directly at davis.bradleyj@gmail.com
 
-If you have any questions about the repository, open an issue or contact:
+ 
 
- [Stephon Autrey](https/api.github.com/users/stephonautery) directly at stephon@stephonautery.com
+ 
 
- [Dan Fellows](https://api.github.com/users/dfel08) directly at dfellows68@gmail.com
+ 
 
- [Sam Poppe](https://api.github.com/users/popsizzle) directly at poppe.samuel@gmail.com
-
- [Brad Davis](https://api.github.com/users/davisbradleyj) directly at davis.bradleyj@gmail.com
+ 
