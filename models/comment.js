@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Comment.associate = function(models) {
-        models.Comment.belongsTo(models.Blog);
+        models.Comment.belongsTo(models.Review);
     }
 
     return Comment;
