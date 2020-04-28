@@ -1,8 +1,8 @@
-# TrailDerper
+# B.A.T.M.a.N.
 
 ## Description
 
-
+An application that helps to connect outdoor enthusisasts, allowing the network of hikers to comment and review hiking trails.
 
 ## Table of Contents
 
@@ -58,7 +58,7 @@ To install necessary dependencies for this application, the following commands a
 
 `npm init` - To create the package.json file.
 
-`npm i express mysqls sequelize` - Adds node modules and populates the package-lock.json file.
+`npm i express mysql2 sequelize passport passport-local unirest` - Adds node modules and populates the package-lock.json file.
 
 For those who wish to clone or fork this repo, the following steps should be followed:
 
