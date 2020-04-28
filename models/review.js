@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
     const Review = sequelize.define("Review", {
 
-        blogTitle: {
+        reviewTitle: {
             type: DataTypes .STRING,
             allowNull: false,
             validate: {
