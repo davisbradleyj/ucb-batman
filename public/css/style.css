@@ -4,3 +4,7 @@ body {
 #card {
     display: inline;
 }
+
+#login {
+    width: 250px;
+} 
