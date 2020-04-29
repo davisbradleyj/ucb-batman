@@ -23,6 +23,9 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1,20]
             }
         },
+        favorites: {
+            type: DataTypes.STRING,
+        },
         hasReview: DataTypes.BOOLEAN
     });
 
