@@ -121,6 +121,7 @@ module.exports = function (app) {
         })
     })
 
+    // post a comment on a review
     app.post("/api/new/comment", function (req,res) {
         db.Comment.create({
             id: req.body.id,
