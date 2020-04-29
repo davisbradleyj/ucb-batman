@@ -1,3 +1,4 @@
 node-modules
 Package-lock.json
 .DS-store
+.DS-Store

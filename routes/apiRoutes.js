@@ -176,7 +176,7 @@ module.exports = function (app) {
 
     // update a review
     app.put("/api/review/update/:id", function (req,res) {
-        const id = req.arams.id;
+        const id = req.params.id;
 
         db.Review.update({
             reviewText: req.body.contents
