@@ -8,24 +8,28 @@ module.exports = function (app) {
         // If the user already has an account send them to the mytrails page
         if (req.user) { res.redirect("../public/html/mytrails.html"); }
         res.sendFile(path.join(__dirname + "../public/html/index.html"))
-    })
+    });
     app.get("/login", function(req, res) {
         // If the user already has an account send them to the mytrails page
         if (req.user) { res.redirect("../public/html/mytrails.html"); }
         res.sendFile(path.join(__dirname, "../public/html/login.html"));
-    })
+    });
     app.get("/trails", authenticated, function(req, res) {
         // if authenticated, allow access to trails page
         res.sendFile(path.join(__dirname, "../public/trails.html"));
-    })
+    });
     app.get("/mytrails", authenticated, function(req, res) {
         // if authenticated, allow access to mytrails page        
         res.sendFile(path.join(__dirname, "../public/mytrails.html"));
-    })
+    });
+    app.get("/mytrailreviews", authenticated, function(req, res) {
+        // if authenticated, allow access to mytrailreviewss page        
+        res.sendFile(path.join(__dirname, "../public/mytrailreviews.html"));
+    });
     app.get("/community", authenticated, function(req, res) {
         // if authenticated, allow access to community page
         res.sendFile(path.join(__dirname, "../public/community.html"));
-    })
+    });
     // Post a new user
     app.post("/api/newuser", function (req, res) {
         console.log("posting new user");
