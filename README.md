@@ -2,7 +2,7 @@
 
 ## Description
 
-An application that helps to connect outdoor enthusisasts, allowing the network of hikers to comment and review hiking trails.
+BATMaN is a community hub and a toolset for outdoor enthusiast to find new trails, new communities and new adventures in the Bay Area.  Pick a trail, find community, get outside!
 
 ## Table of Contents
 
@@ -87,19 +87,19 @@ If you have any questions about the repository, open an issue or contact:
 
 <img src="https://avatars1.githubusercontent.com/u/57854409?v=4" alt="avatar" style="border-radius: 16px" width="30">
 
-[Stephon Autrey](https://github.com/users/stephonautery) directly at stephon@stephonautery.com
+[Stephon Autrey](https://github.com/stephonautery) directly at stephon@stephonautery.com
 
 <img src="https://avatars1.githubusercontent.com/u/57814329?v=4" alt="avatar" style="border-radius: 16px" width="30">
 
-[Dan Fellows](https://github.com/users/dfel08) directly at dfellows68@gmail.com
+[Dan Fellows](https://github.com/dfel08) directly at dfellows68@gmail.com
 
 <img src="https://avatars3.githubusercontent.com/u/60407759?v=4" alt="avatar" style="border-radius: 16px" width="30">
 
-[Sam Poppe](https://github.com/users/popsizzle) directly at poppe.samuel@gmail.com
+[Sam Poppe](https://github.com/popsizzle) directly at poppe.samuel@gmail.com
 
 <img src="https://avatars2.githubusercontent.com/u/61176147?v=4" alt="avatar" style="border-radius: 16px" width="30">
 
-[Brad Davis](https://github.com/users/davisbradleyj) directly at davis.bradleyj@gmail.com
+[Brad Davis](https://github.com/davisbradleyj) directly at davis.bradleyj@gmail.com
 
  
 
