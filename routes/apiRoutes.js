@@ -1,13 +1,31 @@
 const db = require("../models");
 const path = require("path");
-
+const authenticated = require("../config/authenticated");
 module.exports = function (app) {
 
     app.get("/", function (req, res) {
         console.log("At home page")
-        res.sendFile(path.join(__dirname + "/../public/html/index.html"))
+        // If the user already has an account send them to the mytrails page
+        if (req.user) { res.redirect("../public/html/mytrails.html"); }
+        res.sendFile(path.join(__dirname + "../public/html/index.html"))
     })
-
+    app.get("/login", function(req, res) {
+        // If the user already has an account send them to the mytrails page
+        if (req.user) { res.redirect("../public/html/mytrails.html"); }
+        res.sendFile(path.join(__dirname, "../public/html/login.html"));
+    })
+    app.get("/trails", authenticated, function(req, res) {
+        // if authenticated, allow access to trails page
+        res.sendFile(path.join(__dirname, "../public/trails.html"));
+    })
+    app.get("/mytrails", authenticated, function(req, res) {
+        // if authenticated, allow access to mytrails page        
+        res.sendFile(path.join(__dirname, "../public/mytrails.html"));
+    })
+    app.get("/community", authenticated, function(req, res) {
+        // if authenticated, allow access to community page
+        res.sendFile(path.join(__dirname, "../public/community.html"));
+    })
     // Post a new user
     app.post("/api/newuser", function (req, res) {
         console.log("posting new user");
@@ -22,9 +40,7 @@ module.exports = function (app) {
             console.log(err);
         })
     })
-
     app.get("/api/login/:username/:password", function (req, res) {
-
         db.User.findOne({
             where: {
                 username: req.params.username,
