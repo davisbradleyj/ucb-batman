@@ -31,7 +31,7 @@ module.exports = function (app) {
         res.sendFile("/html/community.html", {root: path.join(__dirname,  "../public") });
     });
     // Post a new user
-    app.post("/api/newuser", function (req, res) {
+    app.post("/api/user", function (req, res) {
         console.log("posting new user");
 
         db.User.create({
