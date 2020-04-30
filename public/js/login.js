@@ -137,7 +137,7 @@ $(document).on("click", ".loginAuth", event => {
         }).then(conf => {
             if (conf) {
                 console.log("logged in")
-                window.localStorage.setItem("user", conf)
+                
                 $("#auth").empty();
                 window.location.replace("./mytrails");
             } else {
