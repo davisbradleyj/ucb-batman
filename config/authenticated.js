@@ -4,6 +4,6 @@ module.exports = function(req, res, next) {
       return next();
     }
     // redirect if not logged in
-    return res.redirect("../public/html/login.html");
+    return res.redirect("./login");
   };
   

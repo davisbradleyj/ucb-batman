@@ -139,7 +139,7 @@ $(document).on("click", ".loginAuth", event => {
                 console.log("logged in")
                 window.localStorage.setItem("user", conf)
                 $("#auth").empty();
-                window.location.replace("./main");
+                window.location.replace("./mytrails");
             } else {
                 console.log("login failed")
                 $("#password").val("").focus();

@@ -1,6 +1,12 @@
-/* body { */
+body {
     /* font-family: 'Courier New', Courier, monospace; */
-/* } */
+    background-image: url(../images/imageedit_2_5846888608.png);
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: #999;
+}
 
 #card {
     display: inline;
