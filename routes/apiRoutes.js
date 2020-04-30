@@ -7,28 +7,28 @@ module.exports = function (app) {
         console.log("At home page")
         // If the user already has an account send them to the mytrails page
         if (req.user) { res.redirect("../public/html/mytrails.html"); }
-        res.sendFile(path.join(__dirname + "../public/html/index.html"))
+        res.sendFile("/html/index.html", {root: path.join(__dirname,  "../public") });
     });
     app.get("/login", function(req, res) {
         // If the user already has an account send them to the mytrails page
         if (req.user) { res.redirect("../public/html/mytrails.html"); }
-        res.sendFile(path.join(__dirname, "../public/html/login.html"));
+        res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public") });
     });
     app.get("/trails", authenticated, function(req, res) {
         // if authenticated, allow access to trails page
-        res.sendFile(path.join(__dirname, "../public/trails.html"));
+        res.sendFile("/html/trails.html", {root: path.join(__dirname,  "../public") });
     });
     app.get("/mytrails", authenticated, function(req, res) {
         // if authenticated, allow access to mytrails page        
-        res.sendFile(path.join(__dirname, "../public/mytrails.html"));
+        res.sendFile("/html/mytrails.html", {root: path.join(__dirname,  "../public") });
     });
     app.get("/mytrailreviews", authenticated, function(req, res) {
         // if authenticated, allow access to mytrailreviewss page        
-        res.sendFile(path.join(__dirname, "../public/mytrailreviews.html"));
+        res.sendFile("/html/mytrailreviews.html", {root: path.join(__dirname,  "../public") });
     });
     app.get("/community", authenticated, function(req, res) {
         // if authenticated, allow access to community page
-        res.sendFile(path.join(__dirname, "../public/community.html"));
+        res.sendFile("/html/community.html", {root: path.join(__dirname,  "../public") });
     });
     // Post a new user
     app.post("/api/newuser", function (req, res) {
