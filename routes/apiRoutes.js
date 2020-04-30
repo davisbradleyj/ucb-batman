@@ -23,7 +23,7 @@ module.exports = function (app) {
         res.sendFile("/html/mytrails.html", {root: path.join(__dirname,  "../public") });
     });
     app.get("/mytrailreviews", authenticated, function(req, res) {
-        // if authenticated, allow access to mytrailreviewss page        
+        // if authenticated, allow access to mytrailreviews page        
         res.sendFile("/html/mytrailreviews.html", {root: path.join(__dirname,  "../public") });
     });
     app.get("/community", authenticated, function(req, res) {
@@ -33,10 +33,11 @@ module.exports = function (app) {
     // Post a new user
     app.post("/api/user", function (req, res) {
         console.log("posting new user");
-
+        console.log(req.body)
         db.User.create({
             username: req.body.username,
             password: req.body.password,
+            email: req.body.email,
             hasReview: req.body.hasReview
         }).then(function (result) {
             console.log("Inserted into user table");
@@ -44,7 +45,7 @@ module.exports = function (app) {
             console.log(err);
         })
     })
-    app.get("/api/login/:username/:password", function (req, res) {
+    app.get("/api/user/", function (req, res) {
         db.User.findOne({
             where: {
                 username: req.params.username,
