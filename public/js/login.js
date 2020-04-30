@@ -55,19 +55,22 @@ let renderAuthForms = type => {
 $(document).on("click", ".signin", event => {
     event.preventDefault();
     renderAuthForms("signin")
+    $(".signin").addClass("d-none");
+    $(".register").addClass("d-none");
 })
 
 // event listener for register link
 $(document).on("click", ".register", event => {
     event.preventDefault();
     renderAuthForms("register")
-    $(".signin").addClass(".d-none");
-    $(".register").addClass(".d-none");
+    $(".signin").addClass("d-none");
+    $(".register").addClass("d-none");
 })
 
 // event listener for register button
 $(document).on("click", ".registerAuth", event => {
     event.preventDefault();
+    console.log("regAuth clicked")
     let username = $("#username");
     let email = $("#email");
     let pw = $("#password");
@@ -76,13 +79,18 @@ $(document).on("click", ".registerAuth", event => {
     if (username.val().trim().length < 1) {
         username.focus();
     }
+
     if (email.val().trim().length < 1) {
         email.focus();
+ 
     } else if (pw.val().trim().length < 1) {
         pw.focus();
+
     } else if (pw.val().trim() !== pwconf.val().trim()) {
         pwconf.val("").attr("placeholder", "passwords don't match").focus();
+
     } else {
+        console.log("if 5")
         let user = {
             username: username.val().trim(),
             email: email.val().trim(),
@@ -110,14 +118,12 @@ $(document).on("click", ".registerAuth", event => {
 // event listener for login button
 $(document).on("click", ".loginAuth", event => {
     event.preventDefault();
+    console.log("login clicked")
     let username = $("#username");
     let pw = $("#password");
 
     if (username.val().trim().length < 1) {
         username.focus();
-    }
-    if (email.val().trim().length < 1) {
-        email.focus();
     } else if (pw.val().trim().length < 1) {
         pw.focus();
     } else {
@@ -125,9 +131,8 @@ $(document).on("click", ".loginAuth", event => {
             username: $("#username").val(),
             password: $("#password").val(),
         }
-
         $.ajax({
-            url: "/api/login/:username/:password",
+            url: "/api/user/",
             type: "PUT",
             data: user,
         }).then(conf => {
