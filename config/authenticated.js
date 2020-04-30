@@ -4,6 +4,9 @@ module.exports = function(req, res, next) {
       return next();
     }
     // redirect if not logged in
-    return res.redirect("../public/html/login.html");
+    console.log(req.user);
+    // It's probably not working because of this.
+    console.log("redirecting....not logged in");
+    return res.redirect("./login");
   };
   
