@@ -45,11 +45,12 @@ module.exports = function (app) {
             console.log(err);
         })
     })
-    app.get("/api/user/", function (req, res) {
+
+    app.put("/api/user", function (req, res) {
         db.User.findOne({
             where: {
-                username: req.params.username,
-                password: req.params.password
+                username: req.body.username,
+                password: req.body.password
             }
         }).then(function (dbUser) {
             console.log(dbUser);
@@ -58,13 +59,13 @@ module.exports = function (app) {
     })
 
     // Get Review page
-    app.get("/:id", function (req, res) {
-        console.log("Inside unique id");
-        res.sendFile(path.join(__dirname, "/../public/html/review.html"));
-    })
+    // app.get("/:id", function (req, res) {
+    //     console.log("Inside unique id");
+    //     res.sendFile(path.join(__dirname, "/../public/html/review.html"));
+    // })
 
     // update user table
-    app.put("/api/user/update/:id", function (req, res) {
+    app.put("/api/user/:id/favorites", function (req, res) {
         const id = req.params.id;
         console.log("Updating user table");
         console.log(id);
@@ -87,7 +88,7 @@ module.exports = function (app) {
 
         db.Review.findAll({
         }).then(function (result) {
-            res.send(result);
+            res.json(result);
         })
     })
 
@@ -145,7 +146,6 @@ module.exports = function (app) {
     // post a comment on a review
     app.post("/api/new/comment", function (req,res) {
         db.Comment.create({
-            id: req.body.id,
             comment: req.body.comment,
             userId: req.body.userId,
             ReviewId: req.body.reviewId

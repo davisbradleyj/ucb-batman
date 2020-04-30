@@ -104,7 +104,6 @@ $(document).on("click", ".registerAuth", event => {
             data: user
         }).then(conf => {
             if (conf) {
-                window.localStorage.setItem("user", conf)
                 $("#auth").empty();
                 window.location.replace("./main");
             } else {
@@ -132,7 +131,7 @@ $(document).on("click", ".loginAuth", event => {
             password: $("#password").val(),
         }
         $.ajax({
-            url: "/api/user/",
+            url: "/api/user",
             type: "PUT",
             data: user,
         }).then(conf => {
