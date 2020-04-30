@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/style.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="../../favicon.ico">
     <title>Bay Area Trail Mapping and Networking</title>
 </head>
+
 <body>
 
     <div class="container w-450">
 
         <div class="text-center">
-            <P><h4>BATMaN</h4></P>
-            <P><h2>Your Trails!</h2></P>
+            <P>
+                <h4>BATMaN</h4>
+            </P>
+            <P>
+                <h2>Your Trails!</h2>
+            </P>
         </div>
         <div class="text-center bg-white p-2">
             <P><img src="../images/trails-large.png"></P>
@@ -23,49 +30,62 @@
 
         <nav class="navbar navbar-expand-sm navbar-light bg-success">
             <a class="navbar-brand" href="#">BATMaN</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                <a class="nav-link" href="#">home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">trail list</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">my community</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">my trails</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">login</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">trail list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">my community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">my trails</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">login</a>
+                    </li>
+                </ul>
             </div>
         </nav>
 
         <div id="card" class="card">
             <div class="card-body">
-                <h5 class="card-title">trail 1</h5>
-                <h6 class="card-subtitle mb-2 text-muted">trail sub-title</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title" id="trailTitle1">trail 1</h5>
+                <h6 class="card-subtitle mb-2 text-muted" id="trailLocation1">trail sub-title</h6>
+                <img id="trailImage1" src="">
+                <p id="trailDiff1"></p>
+                <p id="trailLength1"></p>
+                <p class="card-text" id="trailInfo1">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
                 <a href="#" class="card-link">see a map</a>
                 <a href="#" class="card-link">see my favorites</a>
             </div>
             <div class="card-body">
-                <h5 class="card-title">trail 2</h5>
-                <h6 class="card-subtitle mb-2 text-muted">trail sub-title</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title" id="trailTitle2">trail 2</h5>
+                <h6 class="card-subtitle mb-2 text-muted" id="trailLocation2">trail sub-title</h6>
+                <img id="trailImage2" src="">
+                <p id="trailDiff2"></p>
+                <p id="trailLength2"></p>
+                <p class="card-text" id="trailInfo2">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
                 <a href="#" class="card-link">see a map</a>
                 <a href="#" class="card-link">see my favorites</a>
             </div>
             <div class="card-body">
-                <h5 class="card-title">trail 4</h5>
-                <h6 class="card-subtitle mb-2 text-muted">trail sub-title</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title" id="trailTitle3">trail 3</h5>
+                <h6 class="card-subtitle mb-2 text-muted" id="trailLocation3">trail sub-title</h6>
+                <img id="trailImage3" src="">
+                <p id="trailDiff3"></p>
+                <p id="trailLength3"></p>
+                <p class="card-text" id="trailInfo3">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
                 <a href="#" class="card-link">see a map</a>
                 <a href="#" class="card-link">see my favorites</a>
             </div>
@@ -74,7 +94,7 @@
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         $(function () {
             $(".card-link").on("click", function (event) {
@@ -82,8 +102,49 @@
                 console.log($(this));
             })
         })
+      
+        sampleString = "7001635,7002742,7006663";
+        sampleLat = "37.7749";
+        sampleLong = "-122.4194";
+        sampleDist = 20;
+
+        function favorites(string) {
+            var queryURL = "https://www.trailrunproject.com/data/get-trails-by-id?ids=" + string + "&key=200738208-3eb3eaf9d881066a53bca93d0ea3b28e";
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response)
+                const trails = response.trails;
+                for(var i=0; i<trails.length; i++) {
+                    const thisTitle = "#trailTitle" + (i+1);
+                    const thisInfo = "#trailInfo" + (i+1);
+                    const thisImage = "#trailImage" + (i+1);
+                    const thisLocation = "#trailLocation" + (i+1);
+                    const thisDiff = "#trailDiff" + (i+1);
+                    const thisLength = "#trailLength" + (i+1);
+
+                    $(thisTitle).text(trails[i].name);
+                    $(thisImage).attr("src", response.trails[i].imgSmall)
+                    $(thisLocation).text(trails[i].location);
+                    $(thisInfo).text(trails[i].summary);
+                    $(thisDiff).text("Difficulty: " + trails[i].difficulty);
+                    $(thisLength).text("Length: " + trails[i].length + " miles");
+                }
+            })
+        };
+
+        favorites(sampleString);
+
+
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
