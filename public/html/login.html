@@ -17,7 +17,7 @@
             <P><img src="../images/batman-6.png"></P>
         </div>
 
-        <div class="text-center w-25050">
+        <div class="text-center">
             <P><h4>BATMaN</h4></P>
             <P><h6>(Bay Area Trail Mapping and Networking)</h6></P>
         </div>
@@ -28,28 +28,37 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="#">home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="./">home </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">trail list</a>
+                <a class="nav-link" href="#">login<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">my community</a>
+                <a class="nav-link" href="./trails">trail list</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">my trails</a>
+                <a class="nav-link" href="./community">my community</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">login</a>
+                <a class="nav-link" href="./mytrails">my trails</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="./mytrailreviews">my reviews</a>
+                </li>
+                <li class="nav-item">
+                <a class="btn btn-dark" role="button" href="./logout" >logout</a>
                 </li>
             </ul>
             </div>
+
         </nav>
+        <!-- remove break, add style -->
+        <br/> 
         <div id="login" class="w-150">
-            <form>
-                <div class="form-group">
+            <form id="auth">
+                <!-- <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -58,20 +67,15 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1">
                 </div>
-                <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button> -->
             </form>
+            <button class="signin btn btn-primary">Sign In</button>
+            <button class="register btn btn-primary">Register</button>
         </div>
-
-
-        
 
     </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         $(function () {
             $(".btn-primary").on("click", function (event) {
@@ -82,5 +86,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="../js/login.js"></script>
 </body>
 </html>
