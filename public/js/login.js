@@ -137,9 +137,8 @@ $(document).on("click", ".loginAuth", event => {
         }).then(conf => {
             if (conf) {
                 console.log("logged in")
-                
                 $("#auth").empty();
-                window.location.replace("./mytrails");
+                // window.location.replace("./mytrails");
             } else {
                 console.log("login failed")
                 $("#password").val("").focus();
