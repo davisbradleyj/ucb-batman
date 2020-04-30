@@ -4,19 +4,16 @@ var db = require("../models");
 // LocalStrategy will use a login with a username and password
 passport.use(new LocalStrategy(
   function(username, password, done) {
+    console.log(username, password);
     db.User.findOne({
       where: {
-        username: username
+        username: username,
+        password: password
       }
     }).then(function(dbUser) {
       if (!dbUser) {
         return done(null, false, {
-          message: "Incorrect username."
-        });
-      }
-      else if (!dbUser.validPassword(password)) {
-        return done(null, false, {
-          message: "Incorrect password."
+          message: "Incorrect username or password."
         });
       }
       return done(null, dbUser);

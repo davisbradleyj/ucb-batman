@@ -1,6 +1,7 @@
 const db = require("../models");
 const path = require("path");
 const authenticated = require("../config/authenticated");
+const passport = require("passport");
 module.exports = function (app) {
 
     app.get("/", function (req, res) {
@@ -46,16 +47,24 @@ module.exports = function (app) {
         })
     })
 
-    app.put("/api/user", function (req, res) {
+    app.put("/api/user", passport.authenticate("local"), function (req, res) {
         db.User.findOne({
             where: {
                 username: req.body.username,
                 password: req.body.password
             }
         }).then(function (dbUser) {
-            console.log(dbUser);
-            res.json(dbUser);
-        })
+            console.log("passport checking user...")
+            console.log(req.user);
+            // Added Passport logic for validating user
+            if (req.user) { 
+                console.log("true");
+                // Figure out why this isn't working
+                res.json(dbUser);
+            }
+
+            else {res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public")})};
+        });
     })
 
     // Get Review page
