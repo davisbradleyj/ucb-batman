@@ -1,5 +1,6 @@
 // Require express
 var express = require("express");
+var session = require("express-session")
 var app = express();
 var passport = require("./config/passport");
 // require("dotenv").config();
@@ -11,7 +12,7 @@ app.use(express.static("public"));
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(session({ secret: "batman", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
