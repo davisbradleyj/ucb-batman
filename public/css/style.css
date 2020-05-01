@@ -15,14 +15,20 @@ body {
 #login {
     width: 250px;
 } 
+
 /* Always set the map height explicitly to define the size of the div element that contains the map. */
 #map {
     /* height: 75%; */
     margin: 20px;
     width: 600px;
     height: 400px;
-  }
-  #floating-panel {
+}
+
+#floating-panel {
     display: inline;
-  }
-  
+}
+
+.batman {
+   background-color: transparent !important; 
+}
+
