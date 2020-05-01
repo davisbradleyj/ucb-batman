@@ -132,9 +132,13 @@ $(document).on("click", ".loginAuth", event => {
             url: "/api/user",
             type: "PUT",
             data: user,
-        }).then(conf => {
-            if (conf) {
-                console.log("logged in")
+        }).then(dbUser => {
+            if (dbUser) {
+                // console.log(dbUser)
+                localStorage.setItem("currentUser", JSON.stringify(dbUser));
+                currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                console.log(currentUser);
+                
                 $("#auth").empty();
                 // window.location.replace("./mytrails");
             } else {

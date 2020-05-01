@@ -6,14 +6,19 @@ module.exports = function (app) {
 
     app.get("/", function (req, res) {
         console.log("At home page")
-        // If the user already has an account send them to the mytrails page
-        if (req.user) { res.redirect("/mytrails"); }
-        res.sendFile("/html/index.html", {root: path.join(__dirname,  "../public") });
+data_tables
+        res.sendFile("/html/index.html", {root: path.join(__dirname,  "../public") 
+        });
+
     });
     app.get("/login", function(req, res) {
         // If the user already has an account send them to the mytrails page
-        if (req.user) { res.redirect("/mytrails"); }
-        res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public") });
+        if (req.user) { 
+            res.redirect("/mytrails"); 
+        } else {
+            res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public") 
+            });
+        };
     });
     app.get("/trails", authenticated, function(req, res) {
         // if authenticated, allow access to trails page
@@ -66,12 +71,14 @@ module.exports = function (app) {
                 username: req.body.username,
                 password: req.body.password
             }
+            // , attributes: [id, username, email, favorites, hasReview]
         }).then(function (dbUser) {
             console.log("passport checking user...")
             console.log(req.user);
             // Added Passport logic for validating user
             if (req.user) { 
                 console.log("true");
+                console.log(dbUser);
                 // Figure out why this isn't working - no session in place
                 res.json(dbUser);
             }
