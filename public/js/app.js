@@ -29,4 +29,28 @@ $(document).ready(function () {
         })
         location.reload;
     })
+
+    // Post a comment
+    $(document).on("click", "#comment-btn", function(event) {
+        event.preventDefault();
+        let commentId = $(this).data("id");
+        console.log(`comment ID ${commentId}`);
+        let commentText = $("textarea[data-id=" + commentId + "]").val();
+        let newComment = {
+            commentText: commentText,
+            userId: userId,
+            reviewId: commentId
+        }
+
+        // Post to comments table
+        $.ajax("/api/new/comment", {
+            type: "POST",
+            data: newComment
+        }).then(function () {
+            console.log("Posted to comment table");
+        })
+        // clear the text area
+        $("textarea[data-id=" + commentId + "]").val("");
+    })
 })
+
