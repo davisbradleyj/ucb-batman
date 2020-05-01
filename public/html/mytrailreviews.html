@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="./">home </a>
+                <a class="nav-link" href="./">about</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="./login">login</a>
@@ -58,34 +58,34 @@
         <form style="width: 32rem;">
             <div class="form-group">
               <label for="postTitle">Title</label>
-              <input type="text" class="form-control" id="postTitle" placeholder="Write Title Here...">
+              <input type="text" class="form-control" id="reviewTitle" placeholder="Write Title Here...">
             </div>
             <div class="form-group">
               <label for="postReview">Review</label>
-              <textarea class="form-control" id="postReview" placeholder="Write Review Here..."></textarea>
+              <textarea class="form-control" id="reviewText" placeholder="Write Review Here..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+            <button type="submit" class="btn btn-primary" id="submitReview">Submit</button>
           </form>
 
         <div id="card" class="card">
             <div class="card-body">
-                <h5 class="card-title">trail 1</h5>
-                <h6 class="card-subtitle mb-2 text-muted">trail sub-title</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Dipsea Trail</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Mill Valley, California</h6>
+                <p class="card-text">This was an awesome trail.</p>
                 <a href="#" class="card-link">see a map</a>
                 <a href="#" class="card-link">see my favorites</a>
             </div>
             <div class="card-body">
-                <h5 class="card-title">trail 2</h5>
-                <h6 class="card-subtitle mb-2 text-muted">trail sub-title</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Matt Davis Trail</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Bolinas, California</h6>
+                <p class="card-text">But this one is better ;)</p>
                 <a href="#" class="card-link">see a map</a>
                 <a href="#" class="card-link">see my favorites</a>
             </div>
             <div class="card-body">
-                <h5 class="card-title">trail 4</h5>
-                <h6 class="card-subtitle mb-2 text-muted">trail sub-title</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Coastal Trail: Lands End</h5>
+                <h6 class="card-subtitle mb-2 text-muted">San Francisco, California</h6>
+                <p class="card-text">And this one is the best!</p>
                 <a href="#" class="card-link">see a map</a>
                 <a href="#" class="card-link">see my favorites</a>
             </div>
@@ -94,16 +94,9 @@
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            $(".card-link").on("click", function (event) {
-                var id = $(this).data("newItem")
-                console.log($(this));
-            })
-        })
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="../js/app.js"></script>
 </body>
 </html>

@@ -6,14 +6,18 @@ module.exports = function (app) {
 
     app.get("/", function (req, res) {
         console.log("At home page")
-        // If the user already has an account send them to the mytrails page
-        if (req.user) { res.redirect("../public/html/mytrails.html"); }
-        res.sendFile("/html/index.html", {root: path.join(__dirname,  "../public") });
+        res.sendFile("/html/index.html", {root: path.join(__dirname,  "../public") 
+        });
+
     });
     app.get("/login", function(req, res) {
         // If the user already has an account send them to the mytrails page
-        if (req.user) { res.redirect("/mytrails"); }
-        res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public") });
+        if (req.user) { 
+            res.redirect("/mytrails"); 
+        } else {
+            res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public") 
+            });
+        };
     });
     app.get("/trails", authenticated, function(req, res) {
         // if authenticated, allow access to trails page
@@ -47,18 +51,33 @@ module.exports = function (app) {
         })
     })
 
+    // Post a new review
+    app.post("/api/new/review", function (req, res) {
+        db.Review.create({
+            reviewTitle: req.body.reviewTitle,
+            reviewText: req.body.reviewText,
+            UserId: req.body.userId
+        }).then(function (result) {
+            console.log("Inserted into Review table");
+            res.json(result);
+        })
+    })
+
+    // login
     app.put("/api/user", passport.authenticate("local"), function (req, res) {
         db.User.findOne({
             where: {
                 username: req.body.username,
                 password: req.body.password
             }
+            // , attributes: [id, username, email, favorites, hasReview]
         }).then(function (dbUser) {
             console.log("passport checking user...")
             console.log(req.user);
             // Added Passport logic for validating user
             if (req.user) { 
                 console.log("true");
+                console.log(dbUser);
                 // Figure out why this isn't working - no session in place
                 res.json(dbUser);
             }
@@ -73,7 +92,7 @@ module.exports = function (app) {
     // })
 
     // update user table
-    app.put("/api/user/:id/favorites", function (req, res) {
+    app.put("/api/user/update/:id", function (req, res) {
         const id = req.params.id;
         console.log("Updating user table");
         console.log(id);
@@ -86,6 +105,40 @@ module.exports = function (app) {
             }
         }).then(function (result) {
             console.log("Updated user table");
+            res.json(result);
+        })
+    })
+
+    app.get("/api/user/favorites", function (req, res) {
+        console.log("Inside get favorites function");
+        const id = req.body.id;
+        db.User.findAll({
+            favorites },
+                {where: {
+                    id: id
+                }
+        }).then(function (result) {
+            console.log(result);
+            res.json(result);
+        }).catch(function (err) {
+            console.log(err);
+        })
+    })
+
+    //add favorite
+    app.put("/api/user/newfavorites", function (req, res) {
+        const id = req.body.id;
+        dbUser.update("Adding a favorite");
+        console.log(dbUser);
+
+        db.User.update({
+            favorites: req.body.favorites
+        }, {
+            where: {
+                id: id
+            }
+        }).then(function (result) {
+            console.log("Updated favorites table");
             res.json(result);
         })
     })
@@ -219,6 +272,8 @@ module.exports = function (app) {
             res.json("Updated");
         })
     })
+
+    
 
     app.get('/logout', function(req, res){
         req.logout();

@@ -47,7 +47,6 @@ let renderAuthForms = type => {
             btn.addClass("registerAuth").text("Register");
             div4.append(inputPWConf);
             form.append(div1, div2, div3, div4, btn);
-
     }
 }
 
@@ -105,7 +104,6 @@ $(document).on("click", ".registerAuth", event => {
         }).then(conf => {
             if (conf) {
                 $("#auth").empty();
-                window.location.replace("./main");
             } else {
                 console.log("registration failed")
                 $("#email").val("").focus();
@@ -134,9 +132,13 @@ $(document).on("click", ".loginAuth", event => {
             url: "/api/user",
             type: "PUT",
             data: user,
-        }).then(conf => {
-            if (conf) {
-                console.log("logged in")
+        }).then(dbUser => {
+            if (dbUser) {
+                // console.log(dbUser)
+                localStorage.setItem("currentUser", JSON.stringify(dbUser));
+                currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                console.log(currentUser);
+                
                 $("#auth").empty();
                 // window.location.replace("./mytrails");
             } else {
