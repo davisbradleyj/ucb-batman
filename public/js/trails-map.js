@@ -10,9 +10,10 @@ function initMap() {
     method: "GET"
   }).then(function (response) {
     trailObject = response.trails;
+    console.log(trailObject);
     // The location for map center
     var centerOn = {lat: 37.7258, lng: -122.1569};
-    // The map, centered at Uluru
+    console.log(trailObject);
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom: 9, center: centerOn});
     for (i = 0; i < trailObject.length; i++) {
@@ -21,12 +22,31 @@ function initMap() {
                 <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].location}</h6>
                 <p class="card-text">${trailObject[i].summary}</p>
                 <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].length} | ${trailObject[i].difficulty}</h6>
-                <button id="seeMap" data-id="${i}" type="button" class="btn btn-primary">see a map</button>
-                <button id="myfav" data-id="${i}" type="button" class="btn btn-primary">add to favorites</button>
+                <button data-id="${i}" type="button" class="seeMap btn btn-primary">see a map</button>
+                <button data-id="${i}" type="button" class="addFav btn btn-primary">add to favorites</button>
                 </div>`);      
       var centerOn = {lat: trailObject[i].latitude, lng: trailObject[i].longitude};
       // The marker, positioned at Uluru
       var marker = new google.maps.Marker({position: centerOn, map: map});
     }
+
+    $(document).on("click", ".seeMap", function(event){
+      event.preventDefault();
+      var trailID = $(this).attr("data-id");
+      lat = trailObject[trailID].latitude;
+      lng = trailObject[trailID].longitude;
+      var centerOn = {lat: lat, lng: lng};
+      // The map, centered at Uluru
+      var map = new google.maps.Map(
+          document.getElementById('map'), {zoom: 14, center: centerOn});
+          var marker = new google.maps.Marker({position: centerOn, map: map});
+    })
+
+    $(document).on("click", ".addFav", function(event){
+      event.preventDefault();
+      var trailID = $(this).attr("data-id");
+      newFav = trailObject[trailID].id;
+      console.log(newFav);
+    })
   });
 }
