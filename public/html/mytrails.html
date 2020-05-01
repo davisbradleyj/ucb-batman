@@ -99,57 +99,14 @@
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        $(function () {
-            $(".card-link").on("click", function (event) {
-                var id = $(this).data("newItem")
-                console.log($(this));
-            })
-        })
-      
-        favString = "7001635,7002742,7006663";
-        sampleLat = "37.7749";
-        sampleLong = "-122.4194";
-        sampleDist = 20;
-
-        function favorites(string) {
-            var queryURL = "https://www.trailrunproject.com/data/get-trails-by-id?ids=" + string + "&key=200738208-3eb3eaf9d881066a53bca93d0ea3b28e";
-
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(function (response) {
-                console.log(response)
-                const trails = response.trails;
-                for(var i=0; i<trails.length; i++) {
-                    const thisTitle = "#trailTitle" + (i+1);
-                    const thisInfo = "#trailInfo" + (i+1);
-                    const thisImage = "#trailImage" + (i+1);
-                    const thisLocation = "#trailLocation" + (i+1);
-                    const thisDiff = "#trailDiff" + (i+1);
-                    const thisLength = "#trailLength" + (i+1);
-
-                    $(thisTitle).text(trails[i].name);
-                    $(thisImage).attr("src", response.trails[i].imgSmall)
-                    $(thisLocation).text(trails[i].location);
-                    $(thisInfo).text(trails[i].summary);
-                    $(thisDiff).text("Difficulty: " + trails[i].difficulty);
-                    $(thisLength).text("Length: " + trails[i].length + " miles");
-                }
-            })
-        };
-
-        console.log(req.user);
-        favorites(favString);
-
-
-    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+        <script src="../js/mytrails.js"></script>
 </body>
 
 </html>
