@@ -16,6 +16,9 @@ body {
     width: 250px;
 } 
 
+.opacity {
+    opacity: 0.7;
+}
 /* Always set the map height explicitly to define the size of the div element that contains the map. */
 #map {
     /* height: 75%; */
