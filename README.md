@@ -1,5 +1,7 @@
 # B.A.T.M.a.N.
 
+[<img src="https://img.shields.io/badge/License-MIT-blue.svg">](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/_ES_-_6_-green.svg">](https://tc39.es/ecma262/) [<img src=https://img.shields.io/badge/_JavaScript_-_ECMA6_-green.svg>](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [<img src=https://img.shields.io/badge/_MySQL_-2.18.1_-orange.svg>](https://www.npmjs.com/package/mysql) [<img src=https://img.shields.io/badge/_Express_-_4.16.4-pink.svg>](https://www.npmjs.com/package/fs-extra)
+
 ## Description
 
 BATMaN is a community hub and a toolset for outdoor enthusiast to find new trails, new communities and new adventures in the Bay Area.  Pick a trail, find community, get outside!
@@ -46,7 +48,7 @@ BATMaN is a community hub and a toolset for outdoor enthusiast to find new trail
 
 ## License
 
-![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
+[<img src=https://img.shields.io/badge/license-MIT-blue.svg>](https://opensource.org/licenses/MIT)
 
 ## Contributing
 
