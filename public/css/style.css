@@ -1,6 +1,28 @@
 body {
     /* font-family: 'Courier New', Courier, monospace; */
+    background-image: url(../images/imageedit_2_5846888608.png);
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: #999;
 }
+
 #card {
     display: inline;
 }
+
+#login {
+    width: 250px;
+} 
+/* Always set the map height explicitly to define the size of the div element that contains the map. */
+#map {
+    /* height: 75%; */
+    margin: 20px;
+    width: 600px;
+    height: 400px;
+  }
+  #floating-panel {
+    display: inline;
+  }
+  

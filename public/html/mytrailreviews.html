@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="#">home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="./">home </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="./login">login</a>
@@ -40,27 +40,59 @@
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="./community">my community</a>
-                </li>
+               </li>
                 <li class="nav-item">
                 <a class="nav-link" href="./mytrails">my trails</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="./mytrailreviews">my reviews</a>
+                <a class="nav-link" href="#">my reviews<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                <a class="btn btn-dark" role="button" href="./logout" >logout</a>
+                <a class="btn btn-dark" role="button" href="./logout">logout</a>
                 </li>
             </ul>
             </div>
         </nav>
+        <!-- make this break styling -->
+        <br/>
+        <!-- make this break styling -->
+        <div><img src="../images/trails-large.png"></div>
+        <!-- make this break styling -->
+        <br/>
+        <!-- make this break styling -->
+        <form>
+            <div class="form-group">
+              <label for="postTitle">Title</label>
+              <input type="text" class="form-control" id="postTitle" placeholder="Write Title Here...">
+            </div>
+            <div class="form-group">
+              <label for="postReview">Review</label>
+              <textarea class="form-control" id="postReview" placeholder="Write Review Here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+          </form>
 
         <div id="card" class="card">
             <div class="card-body">
-                <h5 class="card-title">who we are</h5>
-                <p class="card-text"></p>BATMaN is a community hub and a toolset for outdoor enthusiast to find new trails, new communities and new adventures in the Bay Area.</p>
-                <p>Pick a trail, find community, get outside!</p>
-                <a href="#" class="card-link">pick a trail</a>
-                <a href="#" class="card-link">find community</a>
+                <h5 class="card-title">trail 1</h5>
+                <h6 class="card-subtitle mb-2 text-muted">trail sub-title</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">see a map</a>
+                <a href="#" class="card-link">see my favorites</a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">trail 2</h5>
+                <h6 class="card-subtitle mb-2 text-muted">trail sub-title</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">see a map</a>
+                <a href="#" class="card-link">see my favorites</a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">trail 4</h5>
+                <h6 class="card-subtitle mb-2 text-muted">trail sub-title</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">see a map</a>
+                <a href="#" class="card-link">see my favorites</a>
             </div>
         </div>
 

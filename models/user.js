@@ -17,17 +17,20 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         password: {
-            type: DataTypes.String,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1,20]
             }
         },
+        favorites: {
+            type: DataTypes.STRING,
+        },
         hasReview: DataTypes.BOOLEAN
     });
 
     User.associate = function (models) {
-        models.User.hasMany(models.blog, { onDelete: 'cascade' });   
+        models.User.hasMany(models.Review, { onDelete: 'cascade' });   
     };
 
     return User;
