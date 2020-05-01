@@ -47,7 +47,6 @@ let renderAuthForms = type => {
             btn.addClass("registerAuth").text("Register");
             div4.append(inputPWConf);
             form.append(div1, div2, div3, div4, btn);
-
     }
 }
 
@@ -105,7 +104,6 @@ $(document).on("click", ".registerAuth", event => {
         }).then(conf => {
             if (conf) {
                 $("#auth").empty();
-                window.location.replace("./main");
             } else {
                 console.log("registration failed")
                 $("#email").val("").focus();
