@@ -19,9 +19,9 @@
   "author": "Stephon Autery, Dan Fellows, S. Poppe, Brad Davis",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davisbradleyj/TrailDerper/issues"
+    "url": "https://github.com/davisbradleyj/ucb-batman/issues"
   },
-  "homepage": "https://github.com/davisbradleyj/TrailDerper#readme",
+  "homepage": "https://github.com/davisbradleyj/ucb-batman#readme",
   "dependencies": {
     "express": "^4.17.1",
     "express-session": "^1.17.1",

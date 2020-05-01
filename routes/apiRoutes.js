@@ -7,7 +7,7 @@ module.exports = function (app) {
     app.get("/", function (req, res) {
         console.log("At home page")
         // If the user already has an account send them to the mytrails page
-        if (req.user) { res.redirect("../public/html/mytrails.html"); }
+        if (req.user) { res.redirect("/mytrails"); }
         res.sendFile("/html/index.html", {root: path.join(__dirname,  "../public") });
     });
     app.get("/login", function(req, res) {
