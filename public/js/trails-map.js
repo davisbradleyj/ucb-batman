@@ -1,5 +1,3 @@
-
-
 function initMap() {
   var lat = 37.7258;
   var lon = -122.1569;
@@ -12,9 +10,10 @@ function initMap() {
     method: "GET"
   }).then(function (response) {
     trailObject = response.trails;
+    console.log(trailObject);
     // The location for map center
     var centerOn = {lat: 37.7258, lng: -122.1569};
-    // The map, centered at Uluru
+    console.log(trailObject);
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom: 9, center: centerOn});
     for (i = 0; i < trailObject.length; i++) {
@@ -34,11 +33,8 @@ function initMap() {
     $(document).on("click", ".seeMap", function(event){
       event.preventDefault();
       var trailID = $(this).attr("data-id");
-      console.log(trailID);
       lat = trailObject[trailID].latitude;
       lng = trailObject[trailID].longitude;
-      console.log(lat);
-      console.log(lng);
       var centerOn = {lat: lat, lng: lng};
       // The map, centered at Uluru
       var map = new google.maps.Map(
@@ -49,8 +45,9 @@ function initMap() {
     $(document).on("click", ".addFav", function(event){
       event.preventDefault();
       var trailID = $(this).attr("data-id");
-      var newFav = trailObject[trailID].id;
-    }
+      newFav = trailObject[trailID].id;
+      console.log(newFav);
+    })
 
   });
 
