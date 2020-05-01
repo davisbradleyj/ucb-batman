@@ -12,7 +12,7 @@ module.exports = function (app) {
     });
     app.get("/login", function(req, res) {
         // If the user already has an account send them to the mytrails page
-        if (req.user) { res.redirect("../public/html/mytrails.html"); }
+        if (req.user) { res.redirect("/mytrails"); }
         res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public") });
     });
     app.get("/trails", authenticated, function(req, res) {
@@ -59,10 +59,9 @@ module.exports = function (app) {
             // Added Passport logic for validating user
             if (req.user) { 
                 console.log("true");
-                // Figure out why this isn't working
+                // Figure out why this isn't working - no session in place
                 res.json(dbUser);
             }
-
             else {res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public")})};
         });
     })
@@ -220,4 +219,9 @@ module.exports = function (app) {
             res.json("Updated");
         })
     })
+
+    app.get('/logout', function(req, res){
+        req.logout();
+        res.redirect('/');
+      });
 }
