@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true,
             autoIncrement: true
         },
-        comment: {
+        commentText: {
             type: DataTypes.STRING
         },
         userId: {
