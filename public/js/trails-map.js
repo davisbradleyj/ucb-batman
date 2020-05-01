@@ -48,9 +48,5 @@ function initMap() {
       newFav = trailObject[trailID].id;
       console.log(newFav);
     })
-
   });
-
-
-
 }
