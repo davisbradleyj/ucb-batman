@@ -6,8 +6,10 @@ module.exports = function (app) {
 
     app.get("/", function (req, res) {
         console.log("At home page")
+data_tables
         res.sendFile("/html/index.html", {root: path.join(__dirname,  "../public") 
         });
+
     });
     app.get("/login", function(req, res) {
         // If the user already has an account send them to the mytrails page
