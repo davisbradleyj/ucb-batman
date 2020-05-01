@@ -46,6 +46,13 @@ function initMap() {
       var trailID = $(this).attr("data-id");
       newFav = trailObject[trailID].id;
       console.log(newFav);
+      console.log(currentUser.id);
+      var queryURL = "/api/user/" + currentUser.id
+
+      $.get(queryURL, function(data) {
+        console.log("got information");
+        console.log(data);
+      })
     })
   });
 }

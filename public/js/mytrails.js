@@ -48,22 +48,4 @@ function favorites(string) {
             document.getElementById('map'), {zoom: 14, center: centerOn});
             var marker = new google.maps.Marker({position: centerOn, map: map});
     })
-
-//     $(document).on("click", ".addFav", function(event){
-//         event.preventDefault();
-//         var trailID = $(this).attr("data-id");
-//         newFav = trailObject[trailID].id;
-//         console.log(newFav);
-//         let user = {
-//             id: currentUser.id
-//         }
-//         $.ajax({
-//             url: "/api/user/favorites",
-//             type: "GET",
-//             data: user,
-//     }).then(function (result) {
-//         console.log(result);
-//     })
-// }
-//)
 };
