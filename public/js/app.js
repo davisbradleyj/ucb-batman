@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    var userId = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
+    const currentUser = JSON.parse(localStorage.getItem("currentUser")); 
+    const userId = currentUser.id;
     var userName;
     var reviewContents;
 

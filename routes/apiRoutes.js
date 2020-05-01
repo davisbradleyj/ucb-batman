@@ -71,7 +71,7 @@ data_tables
                 username: req.body.username,
                 password: req.body.password
             }
-            // , attributes: [id, username, email, favorites, hasReview]
+            
         }).then(function (dbUser) {
             console.log("passport checking user...")
             console.log(req.user);
@@ -92,7 +92,7 @@ data_tables
     //     res.sendFile(path.join(__dirname, "/../public/html/review.html"));
     // })
 
-    // update user table
+    // update user table that they have a review
     app.put("/api/user/update/:id", function (req, res) {
         const id = req.params.id;
         console.log("Updating user table");

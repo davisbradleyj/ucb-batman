@@ -25,7 +25,6 @@ function favorites(string) {
         for (i = 0; i < trailObject.length; i++) {
                 $("#trails").append(`<div class="card-body">
                     <h5 class="card-title">${trailObject[i].name}</h5>
-                    <img src="${trailObject[i].imgSmall} alt="trail picture">
                     <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].location}</h6>
                     <p class="card-text">${trailObject[i].summary}</p>
                     <h6 class="card-subtitle mb-2 text-muted">Length: ${trailObject[i].length} miles | Difficulty: ${trailObject[i].difficulty}</h6>
