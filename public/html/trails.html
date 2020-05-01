@@ -16,18 +16,15 @@
 </head>
 <body>
     <div class="container w-450">
-        <div class="text-center">
-            <P>
-                <h4>BATMaN</h4>
-            </P>
-            <P>
-                <h6>(Bay Area Trail Mapping and Networking)</h6>
-            </P>
+        <div class="text-center p-4">
+            <img src="../images/bat-6.png" style="background-color: transparent">
+            <P><h4>BATMaN</h4></P>
+            <P><h6>(Bay Area Trail Mapping and Networking)</h6></P>
         </div>
       <!-- ---------- -->
       <!-- google maps -->
       <div id="floating-panel">
-        <div id="map"></div>
+        <div id="map1"></div>
       </div>
       <!-- google maps -->
       <!-- ---------- -->
@@ -39,28 +36,37 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">trail list</a>
+                    <a class="nav-link" href="/login">login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">my community</a>
+                    <a class="nav-link" href="#">trail list<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">my trails</a>
+                    <a class="nav-link" href="./community">my community</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">login</a>
+                    <a class="nav-link" href="./mytrails">my trails</a>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="./mytrailreviews">my reviews</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="btn btn-dark" role="button" href="./logout">logout</a>
+                    </li>                    
                 </ul>
             </div>
         </nav>
+        <!-- make this break styling -->
+        <br/>
+        <!-- make this break styling -->
+
 
         <div id="card" class="card"></div>
-    </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

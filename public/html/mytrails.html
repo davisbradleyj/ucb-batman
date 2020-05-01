@@ -13,14 +13,9 @@
 </head>
 
 <body>
-
     <div class="container w-450">
-
-        <div class="text-center bg-white p-2">
-            <P><img src="../images/batman-6.png"></P>
-        </div>
-
-        <div class="text-center">
+        <div class="text-center p-4">
+            <img src="../images/bat-6.png" style="background-color: transparent">
             <P><h4>BATMaN</h4></P>
             <P><h6>(Bay Area Trail Mapping and Networking)</h6></P>
         </div>
@@ -112,7 +107,7 @@
             })
         })
       
-        sampleString = "7001635,7002742,7006663";
+        favString = "7001635,7002742,7006663";
         sampleLat = "37.7749";
         sampleLong = "-122.4194";
         sampleDist = 20;
@@ -144,7 +139,8 @@
             })
         };
 
-        favorites(sampleString);
+        console.log(req.user);
+        favorites(favString);
 
 
     </script>
