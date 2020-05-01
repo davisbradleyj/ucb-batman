@@ -1,11 +1,29 @@
-    // Initialize and add the map
-    // 37.7258° N, 122.1569° W
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+    
+    function success(pos) {
+      var crd = pos.coords;
+    
+      console.log('Your current position is:');
+      console.log(`Latitude : ${crd.latitude}`);
+      console.log(`Longitude: ${crd.longitude}`);
+      console.log(`More or less ${crd.accuracy} meters.`);
+    }
+    
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+    
+    navigator.geolocation.getCurrentPosition(success, error, options);
+
+    
     function initMap() {
       var lat = 37.7258;
       var lon = -122.1569;
       var maxDistance = 25;
-      // var g_lat;
-      // var g_long;
       var trailObject = [];
       function buildQuery(lat, lon, maxDistance) {
           var queryURL = "https://www.trailrunproject.com/data/get-trails?lat=" + lat + "&lon=" + lon + "&maxDistance=" + maxDistance + "&key=200741930-359c494378ff28115656bbb2fe7a58c7";

@@ -1,7 +1,7 @@
 function initMap() {
 
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    let favString = currentUser.favorites;
+    let favString = "7006592,7006642,7007647";
     let trailObject = [];
 
     favorites(favString);
@@ -49,10 +49,21 @@ function favorites(string) {
             var marker = new google.maps.Marker({position: centerOn, map: map});
     })
 
-    $(document).on("click", ".addFav", function(event){
-        event.preventDefault();
-        var trailID = $(this).attr("data-id");
-        newFav = trailObject[trailID].id;
-        console.log(newFav);
-    });
+//     $(document).on("click", ".addFav", function(event){
+//         event.preventDefault();
+//         var trailID = $(this).attr("data-id");
+//         newFav = trailObject[trailID].id;
+//         console.log(newFav);
+//         let user = {
+//             id: currentUser.id
+//         }
+//         $.ajax({
+//             url: "/api/user/favorites",
+//             type: "GET",
+//             data: user,
+//     }).then(function (result) {
+//         console.log(result);
+//     })
+// }
+//)
 };

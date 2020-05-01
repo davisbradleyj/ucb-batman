@@ -6,7 +6,6 @@ module.exports = function (app) {
 
     app.get("/", function (req, res) {
         console.log("At home page")
-data_tables
         res.sendFile("/html/index.html", {root: path.join(__dirname,  "../public") 
         });
 
@@ -106,6 +105,40 @@ data_tables
             }
         }).then(function (result) {
             console.log("Updated user table");
+            res.json(result);
+        })
+    })
+
+    app.get("/api/user/favorites", function (req, res) {
+        console.log("Inside get favorites function");
+        const id = req.body.id;
+        db.User.findAll({
+            favorites },
+                {where: {
+                    id: id
+                }
+        }).then(function (result) {
+            console.log(result);
+            res.json(result);
+        }).catch(function (err) {
+            console.log(err);
+        })
+    })
+
+    //add favorite
+    app.put("/api/user/newfavorites", function (req, res) {
+        const id = req.body.id;
+        dbUser.update("Adding a favorite");
+        console.log(dbUser);
+
+        db.User.update({
+            favorites: req.body.favorites
+        }, {
+            where: {
+                id: id
+            }
+        }).then(function (result) {
+            console.log("Updated favorites table");
             res.json(result);
         })
     })
@@ -239,6 +272,8 @@ data_tables
             res.json("Updated");
         })
     })
+
+    
 
     app.get('/logout', function(req, res){
         req.logout();
