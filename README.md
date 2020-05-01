@@ -46,10 +46,6 @@ BATMaN is a community hub and a toolset for outdoor enthusiast to find new trail
 
 
 
-## License
-
-[<img src=https://img.shields.io/badge/license-MIT-blue.svg>](https://opensource.org/licenses/MIT)
-
 ## Contributing
 
 Jerome Chenette, Kerwin Hy, Mahi Gunasekaran, Stephon Autery, Dan Fellows, Sam Poppe, Brad Davis
