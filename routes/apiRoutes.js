@@ -7,7 +7,7 @@ module.exports = function (app) {
     app.get("/", function (req, res) {
         console.log("At home page")
         // If the user already has an account send them to the mytrails page
-        if (req.user) { res.redirect("../public/html/mytrails.html"); }
+        if (req.user) { res.redirect("/mytrails"); }
         res.sendFile("/html/index.html", {root: path.join(__dirname,  "../public") });
     });
     app.get("/login", function(req, res) {
@@ -47,6 +47,19 @@ module.exports = function (app) {
         })
     })
 
+    // Post a new review
+    app.post("/api/new/review", function (req, res) {
+        db.Review.create({
+            reviewTitle: req.body.reviewTitle,
+            reviewText: req.body.reviewText,
+            UserId: req.body.userId
+        }).then(function (result) {
+            console.log("Inserted into Review table");
+            res.json(result);
+        })
+    })
+
+    // login
     app.put("/api/user", passport.authenticate("local"), function (req, res) {
         db.User.findOne({
             where: {
@@ -73,7 +86,7 @@ module.exports = function (app) {
     // })
 
     // update user table
-    app.put("/api/user/:id/favorites", function (req, res) {
+    app.put("/api/user/update/:id", function (req, res) {
         const id = req.params.id;
         console.log("Updating user table");
         console.log(id);

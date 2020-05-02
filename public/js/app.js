@@ -3,25 +3,26 @@ $(document).ready(function () {
     var userName;
     var reviewContents;
 
-    $("#submit-btn").on("click", function (event) {
+    $("#submitReview").on("click", function (event) {
         event.preventDefault();
         console.log("Submit clicked");
-        var reviewTitle = $("#postTitle").val().trim();
-        var reviewText = $("#postReview").val().trim();
+        var reviewTitle = $("#reviewTitle").val().trim();
+        var reviewText = $("#reviewText").val().trim();
 
         var newReview = {
-            userId: userId,
+            userId: 1,
             reviewTitle: reviewTitle,
             reviewText: reviewText
         }
 
-        $.ajax("/api/new/reviews", {
+        console.log(newReview)
+        $.ajax("/api/new/review", {
             type: "POST",
             data: newReview
         }).then(function (result) {
             console.log("Inserted into Reviews");
 
-            $.ajax("/api/user/update/" + userId, {
+            $.ajax("/api/user/update/" + 1, {
                 type: "PUT"
             }).then(function () {
                 console.log("Updated value to user table")
