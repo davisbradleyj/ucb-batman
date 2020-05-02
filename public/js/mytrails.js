@@ -25,7 +25,6 @@ function favorites(string) {
         for (i = 0; i < trailObject.length; i++) {
                 $("#trails").append(`<div class="card-body">
                     <h5 class="card-title">${trailObject[i].name}</h5>
-                    <img src="${trailObject[i].imgSmall} alt="trail picture">
                     <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].location}</h6>
                     <p class="card-text">${trailObject[i].summary}</p>
                     <h6 class="card-subtitle mb-2 text-muted">Length: ${trailObject[i].length} miles | Difficulty: ${trailObject[i].difficulty}</h6>
@@ -49,22 +48,4 @@ function favorites(string) {
             document.getElementById('map'), {zoom: 14, center: centerOn});
             var marker = new google.maps.Marker({position: centerOn, map: map});
     })
-
-//     $(document).on("click", ".addFav", function(event){
-//         event.preventDefault();
-//         var trailID = $(this).attr("data-id");
-//         newFav = trailObject[trailID].id;
-//         console.log(newFav);
-//         let user = {
-//             id: currentUser.id
-//         }
-//         $.ajax({
-//             url: "/api/user/favorites",
-//             type: "GET",
-//             data: user,
-//     }).then(function (result) {
-//         console.log(result);
-//     })
-// }
-//)
 };

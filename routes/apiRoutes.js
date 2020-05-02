@@ -70,7 +70,7 @@ module.exports = function (app) {
                 username: req.body.username,
                 password: req.body.password
             }
-            // , attributes: [id, username, email, favorites, hasReview]
+            
         }).then(function (dbUser) {
             console.log("passport checking user...")
             console.log(req.user);
@@ -91,7 +91,7 @@ module.exports = function (app) {
     //     res.sendFile(path.join(__dirname, "/../public/html/review.html"));
     // })
 
-    // update user table
+    // update user table that they have a review
     app.put("/api/user/update/:id", function (req, res) {
         const id = req.params.id;
         console.log("Updating user table");
@@ -109,12 +109,12 @@ module.exports = function (app) {
         })
     })
 
-    app.get("/api/user/favorites", function (req, res) {
-        console.log("Inside get favorites function");
-        const id = req.body.id;
+    // Get User info
+    app.get("/api/user/:id", function (req, res) {
+        console.log("Inside get user info function");
+        const id = req.params.id;
         db.User.findAll({
-            favorites },
-                {where: {
+            where: {
                     id: id
                 }
         }).then(function (result) {
@@ -126,10 +126,9 @@ module.exports = function (app) {
     })
 
     //add favorite
-    app.put("/api/user/newfavorites", function (req, res) {
-        const id = req.body.id;
-        dbUser.update("Adding a favorite");
-        console.log(dbUser);
+    app.put("/api/user/:id", function (req, res) {
+        const id = req.params.id;
+        console.log("Adding a favorite");
 
         db.User.update({
             favorites: req.body.favorites
