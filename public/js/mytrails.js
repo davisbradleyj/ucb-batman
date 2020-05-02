@@ -15,10 +15,8 @@ function favorites(string) {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
         trailObject = response.trails;
         var centerOn = {lat: 37.7258, lng: -122.1569};
-        console.log(trailObject);
         var map = new google.maps.Map(
         document.getElementById('map'), {zoom: 9, center: centerOn});
         
@@ -26,7 +24,7 @@ function favorites(string) {
                 $("#trails").append(`
                     <div id="card" class="p-2">
                     <div class="card-body bg-light opacity">
-                    <h5 class="card-title">${trailObject[i].name}</h5>
+                    <h5 class="card-title">${i + 1} - ${trailObject[i].name}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].location}</h6>
                     <p class="card-text">${trailObject[i].summary}</p>
                     <p class="card-text"><img src="${trailObject[i].imgSmall}"></p>
@@ -37,7 +35,10 @@ function favorites(string) {
                     </div>`);
                     var centerOn = {lat: trailObject[i].latitude, lng: trailObject[i].longitude};
                     // The marker, positioned at Uluru
-                    var marker = new google.maps.Marker({position: centerOn, map: map});
+                    var marker = new google.maps.Marker({
+                        position: centerOn,
+                        label: `${i + 1}`, 
+                        map: map});
         }
     });
 
@@ -50,6 +51,7 @@ function favorites(string) {
         // The map, centered at Uluru
         var map = new google.maps.Map(
             document.getElementById('map'), {zoom: 14, center: centerOn});
-            var marker = new google.maps.Marker({position: centerOn, map: map});
+            var marker = new google.maps.Marker({
+                position: centerOn, map: map});
     })
 };

@@ -16,14 +16,17 @@ navigator.geolocation.getCurrentPosition((position) => {
             method: "GET"
         }).then(function (response) {
             trailObject = response.trails;
-            console.log(trailObject);
             // The location for map center
             var centerOn = { lat: lat, lng: lon };
             var map = new google.maps.Map(
-                document.getElementById('map'), { zoom: 9, center: centerOn });
+                document.getElementById('map'), { 
+                    zoom: 9, 
+                    center: centerOn,
+                    // mapTypeId: 'satellite'    
+                });
             for (i = 0; i < trailObject.length; i++) {
                 $("#card").append(`<div class="card-body bg-light opacity">
-                  <h5 class="card-title">${trailObject[i].name}</h5>
+                  <h5 class="card-title">${i + 1} - ${trailObject[i].name}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].location}</h6>
                   <p class="card-text">${trailObject[i].summary}</p>
                   <p class="card-text"><img src="${trailObject[i].imgSmall}"></p>
@@ -33,7 +36,10 @@ navigator.geolocation.getCurrentPosition((position) => {
                   </div><br>`);
               var centerOn = { lat: trailObject[i].latitude, lng: trailObject[i].longitude };
               // The marker, positioned at Uluru
-              var marker = new google.maps.Marker({ position: centerOn, map: map });
+              var marker = new google.maps.Marker({
+                  position: centerOn,
+                  label: `${i + 1}`,
+                  map: map });
           }
 
             $(document).on("click", ".seeMap", function (event) {
@@ -59,14 +65,10 @@ navigator.geolocation.getCurrentPosition((position) => {
                     let favs = res[0].favorites;
                     favs = favs + "," + newFav;
                     console.log(favs);
-
                     currentUser.favorites = favs;
                     localStorage.setItem("currentUser", JSON.stringify(currentUser));
-
-
                     console.log(currentUser);
                     const queryURL2 = "/api/user/update/" + currentUser.id;
-
                     $.ajax({
                         url: queryURL2,
                         type: "PUT",
