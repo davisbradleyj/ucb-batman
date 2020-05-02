@@ -1,11 +1,8 @@
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
-console.log(currentUser);
 function initMap() {
 navigator.geolocation.getCurrentPosition((position) => {
         let lat;
         let lon;
-        console.log(position);
         var maxDistance = 25;
         var trailObject = [];
         var crd = position.coords;
@@ -19,6 +16,7 @@ navigator.geolocation.getCurrentPosition((position) => {
             method: "GET"
         }).then(function (response) {
             trailObject = response.trails;
+            console.log(trailObject);
             // The location for map center
             var centerOn = { lat: lat, lng: lon };
             var map = new google.maps.Map(
@@ -28,6 +26,7 @@ navigator.geolocation.getCurrentPosition((position) => {
                   <h5 class="card-title">${trailObject[i].name}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].location}</h6>
                   <p class="card-text">${trailObject[i].summary}</p>
+                  <p class="card-text"><img src="${trailObject[i].imgSmall}"></p>
                   <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].length} | ${trailObject[i].difficulty}</h6>
                   <button data-id="${i}" type="button" class="seeMap btn btn-primary">see a map</button>
                   <button data-id="${i}" type="button" class="addFav btn btn-primary">add to favorites</button>
@@ -79,10 +78,5 @@ navigator.geolocation.getCurrentPosition((position) => {
                 })
             })
         });
-
-
-
-
-
     });
 }
