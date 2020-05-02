@@ -1,7 +1,7 @@
 function initMap() {
 
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    let favString = "7006592,7006642,7007647";
+    let favString = currentUser.favorites;
     let trailObject = [];
 
     favorites(favString);

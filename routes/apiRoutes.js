@@ -91,14 +91,15 @@ module.exports = function (app) {
     //     res.sendFile(path.join(__dirname, "/../public/html/review.html"));
     // })
 
-    // update user table that they have a review
+    // update user table
     app.put("/api/user/update/:id", function (req, res) {
         const id = req.params.id;
         console.log("Updating user table");
         console.log(id);
 
         db.User.update({
-            hasReview: 1
+            hasReview: req.body.hasReview,
+            favorites: req.body.favorites
         }, {
             where: {
                 id: id
@@ -126,21 +127,21 @@ module.exports = function (app) {
     })
 
     //add favorite
-    app.put("/api/user/:id", function (req, res) {
-        const id = req.params.id;
-        console.log("Adding a favorite");
+    // app.put("/api/user/", function (req, res) {
+    //     const id = req.body.id;
+    //     console.log("Adding a favorite");
 
-        db.User.update({
-            favorites: req.body.favorites
-        }, {
-            where: {
-                id: id
-            }
-        }).then(function (result) {
-            console.log("Updated favorites table");
-            res.json(result);
-        })
-    })
+    //     db.User.update({
+    //         favorites: req.body.favorites
+    //     }, {
+    //         where: {
+    //             id: id
+    //         }
+    //     }).then(function (result) {
+    //         console.log("Updated favorites table");
+    //         res.json(result);
+    //     })
+    // })
 
     // View all reviews and users
     app.get("/api/view/reviews", function (req, res) {

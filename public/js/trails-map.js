@@ -1,3 +1,5 @@
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
 function initMap() {
 
   var lat = 37.7258;
@@ -46,13 +48,30 @@ function initMap() {
       event.preventDefault();
       var trailID = $(this).attr("data-id");
       newFav = trailObject[trailID].id;
-      console.log(newFav);
+      console.log(newFav.toString());
       console.log(currentUser.id);
       var queryURL = "/api/user/" + currentUser.id
 
-      $.get(queryURL, function(data) {
-        console.log("got information");
-        console.log(data);
+      $.get(queryURL, function(res) {
+        let favs = res[0].favorites;
+        favs = favs + "," + newFav;
+        console.log(favs);
+
+        currentUser.favorites = favs;
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+
+        console.log(currentUser);
+        const queryURL2 = "/api/user/update/" + currentUser.id;
+
+        $.ajax({
+          url: queryURL2,
+          type: "PUT",
+          data: currentUser,
+      }).then(function(result){
+        console.log ("successfully saved favorites");
+        console.log(currentUser.favorites);
+      })
       })
     })
   });
