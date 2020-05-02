@@ -16,14 +16,15 @@ function initMap() {
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom: 9, center: centerOn});
     for (i = 0; i < trailObject.length; i++) {
-      $("#card").append(`<div class="card-body">
+      $("#card").append(`<div class="card-body bg-light opacity">
                 <h5 class="card-title">${trailObject[i].name}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].location}</h6>
                 <p class="card-text">${trailObject[i].summary}</p>
                 <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].length} | ${trailObject[i].difficulty}</h6>
                 <button data-id="${i}" type="button" class="seeMap btn btn-primary">see a map</button>
                 <button data-id="${i}" type="button" class="addFav btn btn-primary">add to favorites</button>
-                </div>`);      
+                </div>
+                <br>`);      
       var centerOn = {lat: trailObject[i].latitude, lng: trailObject[i].longitude};
       // The marker, positioned at Uluru
       var marker = new google.maps.Marker({position: centerOn, map: map});
