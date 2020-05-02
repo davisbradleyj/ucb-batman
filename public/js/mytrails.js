@@ -29,6 +29,7 @@ function favorites(string) {
                     <h5 class="card-title">${trailObject[i].name}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].location}</h6>
                     <p class="card-text">${trailObject[i].summary}</p>
+                    <p class="card-text"><img src="${trailObject[i].imgSmall}"></p>
                     <h6 class="card-subtitle mb-2 text-muted">Length: ${trailObject[i].length} miles | Difficulty: ${trailObject[i].difficulty}</h6>
                     <button data-id="${i}" type="button" class="seeMap btn btn-primary">see a map</button>
                     <button data-id="${i}" type="button" class="addFav btn btn-primary">add to favorites</button>
