@@ -55,50 +55,30 @@
         <!-- make this break styling -->
         <br/>
         <!-- make this break styling -->
-        <div class="text-center"><img src="../images/trails-large.png"></div>
-        <!-- make this break styling -->
-        <br/>
-        <!-- make this break styling -->
-        <div id="card" class="card">
-            <div class="card-body">
-                <h5 class="card-title" id="trailTitle1">trail 1</h5>
-                <h6 class="card-subtitle mb-2 text-muted" id="trailLocation1">trail sub-title</h6>
-                <img id="trailImage1" src="">
-                <p id="trailDiff1"></p>
-                <p id="trailLength1"></p>
-                <p class="card-text" id="trailInfo1">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="card-link">see a map</a>
-                <a href="#" class="card-link">see my favorites</a>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title" id="trailTitle2">trail 2</h5>
-                <h6 class="card-subtitle mb-2 text-muted" id="trailLocation2">trail sub-title</h6>
-                <img id="trailImage2" src="">
-                <p id="trailDiff2"></p>
-                <p id="trailLength2"></p>
-                <p class="card-text" id="trailInfo2">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="card-link">see a map</a>
-                <a href="#" class="card-link">see my favorites</a>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title" id="trailTitle3">trail 3</h5>
-                <h6 class="card-subtitle mb-2 text-muted" id="trailLocation3">trail sub-title</h6>
-                <img id="trailImage3" src="">
-                <p id="trailDiff3"></p>
-                <p id="trailLength3"></p>
-                <p class="card-text" id="trailInfo3">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="card-link">see a map</a>
-                <a href="#" class="card-link">see my favorites</a>
-            </div>
-        </div>
 
+        <!-- ---------- -->
+        <!-- google maps -->
+        <div id="floating-panel">
+            <div id="map"></div>
+        </div>
+        <!-- google maps -->
+        <!-- ---------- -->
+        <div id="trails"></div>
     </div>
+
+    
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $(".card-link").on("click", function (event) {
+                var id = $(this).data("newitem")
+                consolt.log($(this));
+            })
+        })
+    </script>
     
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
@@ -107,6 +87,8 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
         <script src="../js/mytrails.js"></script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL02cgmPwm-pJ55En3aRvxczdN4hzc05g&callback=initMap"></script>
 </body>
 
 </html>

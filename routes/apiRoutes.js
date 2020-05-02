@@ -6,14 +6,18 @@ module.exports = function (app) {
 
     app.get("/", function (req, res) {
         console.log("At home page")
-        // If the user already has an account send them to the mytrails page
-        if (req.user) { res.redirect("/mytrails"); }
-        res.sendFile("/html/index.html", {root: path.join(__dirname,  "../public") });
+        res.sendFile("/html/index.html", {root: path.join(__dirname,  "../public") 
+        });
+
     });
     app.get("/login", function(req, res) {
         // If the user already has an account send them to the mytrails page
-        if (req.user) { res.redirect("/mytrails"); }
-        res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public") });
+        if (req.user) { 
+            res.redirect("/mytrails"); 
+        } else {
+            res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public") 
+            });
+        };
     });
     app.get("/trails", authenticated, function(req, res) {
         // if authenticated, allow access to trails page
@@ -66,12 +70,14 @@ module.exports = function (app) {
                 username: req.body.username,
                 password: req.body.password
             }
+            
         }).then(function (dbUser) {
             console.log("passport checking user...")
             console.log(req.user);
             // Added Passport logic for validating user
             if (req.user) { 
                 console.log("true");
+                console.log(dbUser);
                 // Figure out why this isn't working - no session in place
                 res.json(dbUser);
             }
@@ -92,7 +98,8 @@ module.exports = function (app) {
         console.log(id);
 
         db.User.update({
-            hasReview: 1
+            hasReview: req.body.hasReview,
+            favorites: req.body.favorites
         }, {
             where: {
                 id: id
@@ -102,6 +109,39 @@ module.exports = function (app) {
             res.json(result);
         })
     })
+
+    // Get User info
+    app.get("/api/user/:id", function (req, res) {
+        console.log("Inside get user info function");
+        const id = req.params.id;
+        db.User.findAll({
+            where: {
+                    id: id
+                }
+        }).then(function (result) {
+            console.log(result);
+            res.json(result);
+        }).catch(function (err) {
+            console.log(err);
+        })
+    })
+
+    //add favorite
+    // app.put("/api/user/", function (req, res) {
+    //     const id = req.body.id;
+    //     console.log("Adding a favorite");
+
+    //     db.User.update({
+    //         favorites: req.body.favorites
+    //     }, {
+    //         where: {
+    //             id: id
+    //         }
+    //     }).then(function (result) {
+    //         console.log("Updated favorites table");
+    //         res.json(result);
+    //     })
+    // })
 
     // View all reviews and users
     app.get("/api/view/reviews", function (req, res) {
@@ -232,6 +272,8 @@ module.exports = function (app) {
             res.json("Updated");
         })
     })
+
+    
 
     app.get('/logout', function(req, res){
         req.logout();
