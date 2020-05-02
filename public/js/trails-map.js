@@ -31,10 +31,11 @@ navigator.geolocation.getCurrentPosition((position) => {
                   <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].length} | ${trailObject[i].difficulty}</h6>
                   <button data-id="${i}" type="button" class="seeMap btn btn-primary">see a map</button>
                   <button data-id="${i}" type="button" class="addFav btn btn-primary">add to favorites</button>
-                  </div>`);
-                var centerOn = { lat: trailObject[i].latitude, lng: trailObject[i].longitude };
-                var marker = new google.maps.Marker({ position: centerOn, map: map });
-            }
+                  </div><br>`);
+              var centerOn = { lat: trailObject[i].latitude, lng: trailObject[i].longitude };
+              // The marker, positioned at Uluru
+              var marker = new google.maps.Marker({ position: centerOn, map: map });
+          }
 
             $(document).on("click", ".seeMap", function (event) {
                 event.preventDefault();

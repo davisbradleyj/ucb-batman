@@ -13,8 +13,10 @@ module.exports = function (app) {
     app.get("/login", function(req, res) {
         // If the user already has an account send them to the mytrails page
         if (req.user) { 
+            console.log("redirect to mytrails")
             res.redirect("/mytrails"); 
         } else {
+            console.log("not logged in")
             res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public") 
             });
         };
@@ -73,12 +75,11 @@ module.exports = function (app) {
             
         }).then(function (dbUser) {
             console.log("passport checking user...")
-            console.log(req.user);
+            // console.log(req.user);
             // Added Passport logic for validating user
             if (req.user) { 
                 console.log("true");
-                console.log(dbUser);
-                // Figure out why this isn't working - no session in place
+                // console.log(dbUser);
                 res.json(dbUser);
             }
             else {res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public")})};
