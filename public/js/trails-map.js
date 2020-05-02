@@ -1,4 +1,5 @@
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+console.log(currentUser);
 function initMap() {
 
   var options = {
