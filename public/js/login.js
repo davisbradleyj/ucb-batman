@@ -104,6 +104,7 @@ $(document).on("click", ".registerAuth", event => {
         }).then(conf => {
             if (conf) {
                 $("#auth").empty();
+
             } else {
                 console.log("registration failed")
                 $("#email").val("").focus();
@@ -140,7 +141,7 @@ $(document).on("click", ".loginAuth", event => {
                 console.log(currentUser);
                 
                 $("#auth").empty();
-                // window.location.replace("./mytrails");
+                window.location.replace("./mytrails");
             } else {
                 console.log("login failed")
                 $("#password").val("").focus();
