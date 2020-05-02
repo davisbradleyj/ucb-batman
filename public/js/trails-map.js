@@ -15,6 +15,8 @@ function initMap() {
       var crd = pos.coords;
       lat = crd.latitude;
       lon = crd.longitude;
+      console.log(lat);
+      console.log(lon);
       var queryURL = "https://www.trailrunproject.com/data/get-trails?lat=" + lat + "&lon=" + lon + "&maxDistance=" + maxDistance + "&key=200741930-359c494378ff28115656bbb2fe7a58c7";
       $.ajax({
           url: queryURL,
