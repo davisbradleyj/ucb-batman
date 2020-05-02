@@ -1,3 +1,4 @@
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 function initMap() {
 
   var options = {
@@ -25,7 +26,7 @@ function initMap() {
           var map = new google.maps.Map(
               document.getElementById('map'), { zoom: 9, center: centerOn });
           for (i = 0; i < trailObject.length; i++) {
-              $("#card").append(`<div class="card-body">
+              $("#card").append(`<div class="card-body bg-light opacity">
                   <h5 class="card-title">${trailObject[i].name}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].location}</h6>
                   <p class="card-text">${trailObject[i].summary}</p>
@@ -50,12 +51,36 @@ function initMap() {
               var marker = new google.maps.Marker({ position: centerOn, map: map });
           })
 
-          $(document).on("click", ".addFav", function (event) {
-              event.preventDefault();
-              var trailID = $(this).attr("data-id");
-              newFav = trailObject[trailID].id;
-              console.log(newFav);
-          })
+          $(document).on("click", ".addFav", function(event){
+      event.preventDefault();
+      var trailID = $(this).attr("data-id");
+      newFav = trailObject[trailID].id;
+      console.log(newFav.toString());
+      console.log(currentUser.id);
+      var queryURL = "/api/user/" + currentUser.id
+
+      $.get(queryURL, function(res) {
+        let favs = res[0].favorites;
+        favs = favs + "," + newFav;
+        console.log(favs);
+
+        currentUser.favorites = favs;
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+
+        console.log(currentUser);
+        const queryURL2 = "/api/user/update/" + currentUser.id;
+
+        $.ajax({
+          url: queryURL2,
+          type: "PUT",
+          data: currentUser,
+      }).then(function(result){
+        console.log ("successfully saved favorites");
+        console.log(currentUser.favorites);
+      })
+      })
+    })
       });
   }
 
