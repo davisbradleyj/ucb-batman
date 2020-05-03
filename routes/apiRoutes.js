@@ -100,7 +100,6 @@ module.exports = function (app) {
         console.log(id);
 
         db.User.update({
-            hasReview: req.body.hasReview,
             favorites: req.body.favorites
         }, {
             where: {

@@ -4,6 +4,25 @@ $(document).ready(function () {
     var userName;
     var reviewContents;
 
+    let queryURL = "/api/myreviews/" + userId;
+
+    $.get(queryURL, function (res) {
+        console.log(res);
+
+        for(var i=0; i<res.length; i++){
+
+        let trailLocation = "California";
+
+        $("#trailReviews").append(`<div id="card" class="p-2">
+        <div class="card-body bg-light opacity">
+            <h5 class="card-title">${res[i].reviewTitle}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${trailLocation}</h6>
+            <p class="card-text">${res[i].reviewText}</p>
+            <a href="#" class="card-link">Add Comment</a>
+        </div>`);
+        }
+    });
+
     $("#submitReview").on("click", function (event) {
         event.preventDefault();
         console.log("Submit clicked");
@@ -11,7 +30,7 @@ $(document).ready(function () {
         var reviewText = $("#reviewText").val().trim();
 
         var newReview = {
-            userId: 1,
+            userId: userId,
             reviewTitle: reviewTitle,
             reviewText: reviewText
         }
@@ -23,13 +42,8 @@ $(document).ready(function () {
         }).then(function (result) {
             console.log("Inserted into Reviews");
 
-            $.ajax("/api/user/update/" + 1, {
-                type: "PUT"
-            }).then(function () {
-                console.log("Updated value to user table")
-            })
         })
-        location.reload;
+        location.reload();
     })
 
     // Post a comment

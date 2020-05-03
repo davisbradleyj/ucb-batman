@@ -11,11 +11,8 @@ module.exports = function(sequelize, DataTypes) {
         },
 
         reviewText: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
-            validate: {
-                len: [3, 500]
-            }
         }
     });
 
