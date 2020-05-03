@@ -1,5 +1,4 @@
 body {
-    /* font-family: 'Courier New', Courier, monospace; */
     background-image: url(../images/imageedit_2_5846888608.png);
     background-position: center center;
     background-repeat:  no-repeat;
@@ -9,6 +8,7 @@ body {
 }
 
 #card {
+    /* allows for the alignment of the idividual cards */
     display: inline;
 }
 
@@ -22,14 +22,19 @@ body {
 /* Always set the map height explicitly to define the size of the div element that contains the map. */
 #map {
     /* height: 75%; */
-    /* display: inline; */
-    margin: 20px;
-    width: 600px;
-    height: 400px;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 3px;
+    border: 1px solid lightgreen;
+    width: 500px;
+    height: 300px;
 }
 
+
 #floating-panel {
-    display: inline;
+    width: 100%;
+    text-align: center;
+    /* display: inline; */
 }
 
 .batman {
