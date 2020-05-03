@@ -22,6 +22,7 @@ body {
 /* Always set the map height explicitly to define the size of the div element that contains the map. */
 #map {
     /* height: 75%; */
+    /* display: inline; */
     margin: 20px;
     width: 600px;
     height: 400px;

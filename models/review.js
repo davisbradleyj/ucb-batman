@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     const Review = sequelize.define("Review", {
 
         reviewTitle: {
-            type: DataTypes .STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [3, 500]
@@ -13,6 +13,15 @@ module.exports = function(sequelize, DataTypes) {
         reviewText: {
             type: DataTypes.TEXT,
             allowNull: false,
+        },
+        user: {
+            type: DataTypes.STRING
+        },
+        trailLocation: {
+            type: DataTypes.STRING
+        },
+        trailName: {
+            type: DataTypes.STRING
         }
     });
 
