@@ -102,6 +102,7 @@ $(document).on("click", ".registerAuth", event => {
             data: user
         }).then(conf => {
             if (conf) {
+                $("#auth").empty();
                 console.log(conf)
                 console.log("registration success")
             } else {
