@@ -89,7 +89,6 @@ $(document).on("click", ".registerAuth", event => {
         pwconf.val("").attr("placeholder", "passwords don't match").focus();
 
     } else {
-        console.log("if 5")
         let user = {
             username: username.val().trim(),
             email: email.val().trim(),
@@ -103,8 +102,8 @@ $(document).on("click", ".registerAuth", event => {
             data: user
         }).then(conf => {
             if (conf) {
-                $("#auth").empty();
-
+                console.log(conf)
+                console.log("registration success")
             } else {
                 console.log("registration failed")
                 $("#email").val("").focus();

@@ -48,6 +48,7 @@ module.exports = function (app) {
             hasReview: req.body.hasReview
         }).then(function (result) {
             console.log("Inserted into user table");
+            res.redirect("/");
         }).catch(function (err) {
             console.log(err);
         })
