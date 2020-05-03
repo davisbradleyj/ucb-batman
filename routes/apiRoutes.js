@@ -59,7 +59,10 @@ module.exports = function (app) {
         db.Review.create({
             reviewTitle: req.body.reviewTitle,
             reviewText: req.body.reviewText,
-            UserId: req.body.userId
+            UserId: req.body.userId,
+            user: req.body.user,
+            trailLocation: req.body.trailLocation,
+            trailName: req.body.trailName
         }).then(function (result) {
             console.log("Inserted into Review table");
             res.json(result);
@@ -208,9 +211,10 @@ module.exports = function (app) {
     // post a comment on a review
     app.post("/api/new/comment", function (req,res) {
         db.Comment.create({
-            comment: req.body.comment,
+            commentText: req.body.commentText,
             userId: req.body.userId,
-            ReviewId: req.body.reviewId
+            ReviewId: req.body.reviewId,
+            user: req.body.user
         }).then(function (result) {
             console.log("Inserted into Comments table");
             res.json(result);
