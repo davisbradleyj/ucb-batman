@@ -19,25 +19,42 @@ body {
 .opacity {
     opacity: 0.7;
 }
+
 /* Always set the map height explicitly to define the size of the div element that contains the map. */
 #map {
-    /* height: 75%; */
     display: inline-block;
     margin: 0 auto;
     padding: 3px;
-    border: 1px solid lightgreen;
-    width: 500px;
-    height: 300px;
+    width: 600px;
+    height: 400px;
 }
-
 
 #floating-panel {
     width: 100%;
     text-align: center;
-    /* display: inline; */
 }
 
 .batman {
    background-color: transparent !important; 
 }
+@media only screen and (max-width: 768px) {
+    #map {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 3px;
+        width: 450px;
+        height: 350px;
+    }
 
+  }
+
+@media only screen and (max-width: 575px) {
+    #map {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 3px;
+        width: 450px;
+        height: 350px;
+    }
+
+  }
