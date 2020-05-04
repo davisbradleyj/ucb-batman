@@ -43,7 +43,6 @@ $.get(queryURL, function (res) {
     })
 })
 
-
 // Post a comment
 $(document).on("click", ".comment-btn", function (event) {
     event.preventDefault();

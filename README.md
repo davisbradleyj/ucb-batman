@@ -44,7 +44,7 @@ In an age of social distancing, we all look forward to a time when being outside
 
 In order to access the information on the site, a user must create a session through a login to the site, with this authentication controlled by Passport.js. Passport collects the username and password, compares it to the information stored in our user database, with an authenticated user then able to access the applcation.  The logic controlling these actions is available in the passport.js file, authenticated.js file, and apiRoutes.js, with most of the requirements declared in the server.js.  Below are snippets of the logic from passport, authenticated, and apiRoutes:
 
-`Passport`
+`Passport.js`
 ```
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
@@ -70,7 +70,7 @@ passport.use(new LocalStrategy(
 ));
 ```
 
-`Authenticated`
+`Authenticated.js`
 ```
 module.exports = function(req, res, next) {
     // approved login
@@ -85,7 +85,7 @@ module.exports = function(req, res, next) {
   };
 ```
 
-`apiRoutes`
+`apiRoutes.js`
 ```
    app.get("/login", function(req, res) {
         // If the user already has an account send them to the mytrails page
@@ -108,7 +108,64 @@ module.exports = function(req, res, next) {
     });
 ```
 
-One of the more creative features that we coded was the ability for a user to view comments on the reviews of others through the community page.  This feature utilizes get routes from our comments and reviews pages, and  
+One of the more creative features that we coded was the ability for a user to view comments on the reviews of others through the community page.  This feature utilizes get routes from our comments and reviews pages, merges them through a series of promises to allow a series of string literals to be written dynamically to our html pages.  The initial loop pulls in all the reviews in order by id, and prints them to the page.  Prior to moving to the next review, a request is made to pull in all the comments for that review, with each generated through a secondary loop, then rendered into the string literal to create the fully displayed review card.
+
+`apiRoutes.js`
+```
+app.get("/api/view/reviews", function (req, res) {
+  console.log("Viewing all reviews");
+  db.Review.findAll({
+  }).then(function (result) {
+      res.json(result);
+  })
+})
+
+app.get("/api/comment", function (req, res) {
+  db.Comment.findAll({
+  }).then(function (comment) {
+      res.json(comment);
+  })
+})
+```
+
+`community.js`
+```
+$.get(queryURL, function (res) {
+    for (var i = 0; i < res.length; i++) {
+        ReviewID = res[i].id;
+        ReviewArr.push(ReviewID);
+        console.log(ReviewID);
+        console.log("...")
+        $("#allReviews").append(
+            `<div id="card" class="p-2">
+            <div class="card-body bg-light opacity">
+                <h5 class="card-title">${res[i].reviewTitle}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${res[i].trailLocation}</h6>
+                <p class="card-text">${res[i].reviewText}</p>        
+            <div class="form-group">
+                <label for="comment-text">New Comment</label>
+                <textarea class="form-control" data-id="${ReviewID}" placeholder="Write a comment ..."></textarea>
+            </div>
+            <div>
+                <button data-comment-id="${ReviewID}" class="comment-btn btn btn-primary">Add Comment</button>
+                <button id="${ReviewID}" class="deleteReview btn btn-danger">Delete Review</button>
+            </div>
+            <div id = "comment${ReviewID}"></div>
+        </div>`
+        );
+    };
+}).then(function (data) {
+    console.log(ReviewArr);
+    let commentQuery = "/api/comment";
+    $.get(commentQuery, function (commentRes) {
+        commentArray = commentRes;
+    }).then(function () {
+        for (let j = 0; j < commentArray.length; j++) {
+            $(`#comment${commentArray[j].ReviewId}`).append(`<div class="card-body bg-light opacity"><h6>${commentArray[j].user} commented:</h6><p>${commentArray[j].commentText}</p></div>`);
+        }
+    })
+})
+```
 
 ## Learning-Points
 
