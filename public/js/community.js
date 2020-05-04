@@ -7,7 +7,7 @@ $.get(queryURL, function (res) {
 
     for (var i = 0; i < res.length; i++) {
         $("#allReviews").append(`<div id="card" class="p-2">
-    <div class="card-body bg-light opacity">
+        <div class="card-body bg-light opacity">
         <h5 class="card-title">${res[i].reviewTitle}</h5>
         <h6 class="card-subtitle mb-2 text-muted">${res[i].trailLocation}</h6>
         <p class="card-text">${res[i].reviewText}</p>
@@ -19,7 +19,15 @@ $.get(queryURL, function (res) {
         </div>
         <a href="#" data-comment-id="${res[i].id}" class="comment-btn card-link">Add Comment</a>
 
-    </div>`);
+        </div>`);
+
+        let queryURL2 = "/api/comment/" + (i+1);
+
+        $.get(queryURL2, function(res){
+            console.log(res);
+
+            for(var i=0; i<res.length; )
+        });
     }
 });
 
