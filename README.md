@@ -166,6 +166,7 @@ $.get(queryURL, function (res) {
     })
 })
 ```
+<img src="https://github.com/davisbradleyj/ucb-batman/blob/master/public/images/batman_front.png">
 
 ## Learning-Points
 
