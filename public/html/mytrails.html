@@ -20,8 +20,8 @@
             <P><h6>(Bay Area Trail Mapping and Networking)</h6></P>
         </div>
 
-        <nav class="navbar navbar-expand-sm navbar-light bg-success">
-            <a class="navbar-brand" href="#">BATMaN</a>
+        <nav class="navbar navbar-expand-md navbar-light bg-success">
+            <a class="navbar-brand" href="./">BATMaN</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,9 +42,6 @@
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="#">my trails<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="./mytrailreviews">my reviews</a>
                     </li>
                     <li class="nav-item">
                     <a class="btn btn-dark" role="button" href="./logout" >logout</a>
@@ -75,7 +72,7 @@
         $(function () {
             $(".card-link").on("click", function (event) {
                 var id = $(this).data("newitem")
-                consolt.log($(this));
+                console.log($(this));
             })
         })
     </script>

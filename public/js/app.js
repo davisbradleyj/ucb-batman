@@ -10,13 +10,10 @@ $(document).ready(function () {
         console.log(res);
 
         for(var i=0; i<res.length; i++){
-
-        let trailLocation = "California";
-
         $("#trailReviews").append(`<div id="card" class="p-2">
         <div class="card-body bg-light opacity">
             <h5 class="card-title">${res[i].reviewTitle}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${trailLocation}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">${res[i].user}</h6>
             <p class="card-text">${res[i].reviewText}</p>
             <a href="#" class="card-link">Add Comment</a>
         </div>`);
@@ -32,7 +29,8 @@ $(document).ready(function () {
         var newReview = {
             userId: userId,
             reviewTitle: reviewTitle,
-            reviewText: reviewText
+            reviewText: reviewText,
+            user: currentUser.username
         }
 
         console.log(newReview)

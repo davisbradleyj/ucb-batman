@@ -12,6 +12,9 @@ module.exports = function (sequelize, DataTypes) {
         },
         userId: {
             type: DataTypes.INTEGER
+        },
+        user: {
+            type: DataTypes.STRING
         }
     });
 
