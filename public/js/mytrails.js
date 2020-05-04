@@ -33,7 +33,7 @@ function favorites(string) {
                     <textarea class="form-control" id="reviewText${i + 1}" placeholder="Write Review Here..."></textarea>
                     </div>
                     <button id="${i + 1}" type="submit" data-trailname="${trailObject[i].name}"  data-traillocation="${trailObject[i].location}" class="submitReview btn btn-primary">Submit</button>
-                  </form>
+                    </form>
 
                     </div>
 
@@ -89,6 +89,24 @@ $(document).on("click", ".submitReview", function (event) {
     }).then(function (result) {
         console.log("Inserted into Reviews");
 
+    })
+    location.reload();
+})
+
+$(document).on("click", ".deleteReview", function (event) {
+    event.preventDefault();
+    console.log("deleteReview");
+    var id = $(this).attr("id");
+    var deleteReview = {
+        id: id
+    }
+
+    console.log(deleteReview)
+    $.ajax("/api/review/delete/:id", {
+        type: "put",
+        data: deleteReview
+    }).then(function (result) {
+        console.log("Review Deleted");
     })
     location.reload();
 })
