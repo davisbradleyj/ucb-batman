@@ -40,11 +40,85 @@ BATMaN is a community hub and a toolset for outdoor enthusiast to find new trail
 
 ## Summary
 
+In an age of social distancing, we all look forward to a time when being outside and gathering in groups is the usual normal.  To that end, our team sought to create an application targeting outdoor enthusiasts, and allowing them to review nearby hiking trails, read reviews on those trails, choose their favorites, and comment on the reviews of others.
 
+In order to access the information on the site, a user must create a session through a login to the site, with this authentication controlled by Passport.js. Passport collects the username and password, compares it to the information stored in our user database, with an authenticated user then able to access the applcation.  The logic controlling these actions is available in the passport.js file, authenticated.js file, and apiRoutes.js, with most of the requirements declared in the server.js.  Below are snippets of the logic from passport, authenticated, and apiRoutes:
+
+`Passport`
+```
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var db = require("../models");
+// LocalStrategy will use a login with a username and password
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    console.log(username, password);
+    db.User.findOne({
+      where: {
+        username: username,
+        password: password
+      }
+    }).then(function(dbUser) {
+      if (!dbUser) {
+        return done(null, false, {
+          message: "Incorrect username or password."
+        });
+      }
+      return done(null, dbUser);
+    });
+  }
+));
+```
+
+`Authenticated`
+```
+module.exports = function(req, res, next) {
+    // approved login
+    if (req.user) {      
+      return next();
+
+    }
+    // redirect if not logged in
+    console.log("redirecting...not logged in")
+    console.log(req.user)
+    return res.redirect("./login");
+  };
+```
+
+`apiRoutes`
+```
+   app.get("/login", function(req, res) {
+        // If the user already has an account send them to the mytrails page
+        if (req.user) { 
+            console.log("redirect to mytrails")
+            res.redirect("/mytrails"); 
+        } else {
+            console.log("not logged in")
+            res.sendFile("/html/login.html", {root: path.join(__dirname,  "../public") 
+            });
+        };
+    });
+    app.get("/trails", authenticated, function(req, res) {
+        // if authenticated, allow access to trails page
+        res.sendFile("/html/trails.html", {root: path.join(__dirname,  "../public") });
+    });
+    app.get("/mytrails", authenticated, function(req, res) {
+        // if authenticated, allow access to mytrails page        
+        res.sendFile("/html/mytrails.html", {root: path.join(__dirname,  "../public") });
+    });
+```
+
+One of the more creative features that we coded was the ability for a user to view comments on the reviews of others through the community page.  This feature utilizes get routes from our comments and reviews pages, and  
 
 ## Learning-Points
 
+As this was the first time working as a team, most of ou key learning points related to how to co-exist in a team.  Our strengths included:
+- Communicating changes to code, and working together to ensure updates get into the code
+- Setting reasonable expectations for goals
+- Pivoting quickly with good pacing of development/programming worknot losing time
+- Distribution of work / Willingness to pair program and assist when teammates are stuck
 
+With regards to the technology learning points, we put into practice our ability to research and implement data from RapidAPI and the TrailRunProject Data API, and using Google Maps to help represent some of this returned data.  This was also a learning experience for each of our team in the practical application of Passport.js to control authentication and access to secure areas of our application. 
 
 ## Contributing
 
@@ -87,7 +161,7 @@ If you have any questions about the repository, open an issue or contact:
 
 [Stephon Autrey](https://github.com/stephonautery) directly at stephon@stephonautery.com
 
-<img src="https://avatars1.githubusercontent.com/u/57814329?v=4" alt="avatar" style="border-radius: 16px" width="30">
+<img src="https://avatars2.githubusercontent.com/u/57814329?v=4" alt="avatar" style="border-radius: 16px" width="30">
 
 [Dan Fellows](https://github.com/dfel08) directly at dfellows68@gmail.com
 
@@ -95,7 +169,7 @@ If you have any questions about the repository, open an issue or contact:
 
 [Sam Poppe](https://github.com/popsizzle) directly at poppe.samuel@gmail.com
 
-<img src="https://avatars2.githubusercontent.com/u/61176147?v=4" alt="avatar" style="border-radius: 16px" width="30">
+<img src="https://avatars3.githubusercontent.com/u/61176147?v=4" alt="avatar" style="border-radius: 16px" width="30">
 
 [Brad Davis](https://github.com/davisbradleyj) directly at davis.bradleyj@gmail.com
 
