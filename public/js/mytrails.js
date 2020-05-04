@@ -20,19 +20,17 @@ function favorites(string) {
             document.getElementById('map'), { zoom: 9, center: centerOn });
 
         for (i = 0; i < trailObject.length; i++) {
-            $("#trails").append(`
-                    <div id="card" class="p-2">
+            $("#trails").append(`<div id="card" class="p-2">
                     <div class="card-body bg-light opacity">
-                    <h5 class="card-title">${i + 1} - ${trailObject[i].name}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].location}</h6>
-                    <p class="card-text">${trailObject[i].summary}</p>
-                    <p class="card-text"><img src="${trailObject[i].imgSmall}"></p>
-                    <h6 class="card-subtitle mb-2 text-muted">Length: ${trailObject[i].length} miles | Difficulty: ${trailObject[i].difficulty}</h6>
+                        <h5 class="card-title">${i + 1} - ${trailObject[i].name}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">${trailObject[i].location}</h6>
+                        <p class="card-text">${trailObject[i].summary}</p>
+                        <p class="card-text"><img src="${trailObject[i].imgSmall}"></p>
+                        <h6 class="card-subtitle mb-2 text-muted">Length: ${trailObject[i].length} miles | Difficulty: ${trailObject[i].difficulty}</h6>
                     <button data-id="${i}" type="button" class="seeMap btn btn-primary">see a map</button>
-                    <form style="width: 32rem;">
                     <div class="form-group">
-                      <label for="postReview">Review</label>
-                      <textarea class="form-control" id="reviewText${i + 1}" placeholder="Write Review Here..."></textarea>
+                    <label for="postReview">Review</label>
+                    <textarea class="form-control" id="reviewText${i + 1}" placeholder="Write Review Here..."></textarea>
                     </div>
                     <button id="${i + 1}" type="submit" data-trailname="${trailObject[i].name}"  data-traillocation="${trailObject[i].location}" class="submitReview btn btn-primary">Submit</button>
                   </form>
