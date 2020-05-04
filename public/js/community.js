@@ -61,6 +61,7 @@ $(document).on("click", ".comment-btn", function (event) {
         data: newComment
     }).then(function () {
         // console.log("Posted to comment table");
+        location.reload();
     })
     // clear the text area
     $("textarea[data-id=" + reviewId + "]").val("");
