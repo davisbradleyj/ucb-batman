@@ -238,7 +238,6 @@ module.exports = function (app) {
     // delete a review
     app.put("/api/review/delete/:id", function (req, res) {
         const id = req.params.id;
-
         db.Review.destroy({
             where: {
                 id: id
@@ -251,7 +250,6 @@ module.exports = function (app) {
     // delete a comment
     app.put("/api/comment/delete/:id", function (req, res) {
         const id = req.params.id;
-
         db.Comment.destroy({
             where: {
                 id: id
@@ -278,7 +276,6 @@ module.exports = function (app) {
         })
     })
 
-    
 
     app.get('/logout', function(req, res){
         req.logout();
