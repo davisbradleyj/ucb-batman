@@ -53,7 +53,7 @@ $(document).ready(function () {
         console.log(`comment ID ${commentId}`);
         let commentText = $("textarea[data-id=" + commentId + "]").val();
         let newComment = {
-            comment: commentText,
+            commentText: commentText,
             userId: userId,
             reviewId: commentId
         }
