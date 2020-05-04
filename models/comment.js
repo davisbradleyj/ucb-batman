@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
             autoIncrement: true
         },
         commentText: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
         },
         userId: {
             type: DataTypes.INTEGER
