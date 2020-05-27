@@ -58,3 +58,13 @@ body {
     }
 
   }
+
+  @media only screen and (max-width: 425px) {
+    #map {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 3px;
+        width: 400px;
+        height: 350px;
+    }
+}
